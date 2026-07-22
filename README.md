@@ -5,3 +5,6 @@ common 'rules' for creating rdf data using 'rdf-engine':
 * SPARQLConstructRule
 
 see bim2rdf, gridkitched, controlscore.
+
+
+develop with `uv sync --all-packages --all-extras`.

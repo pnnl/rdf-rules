@@ -7,7 +7,17 @@ authors = [
     { name = "Majid alDosari", email = "majid.aldosari@pnnl.gov" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    'rdf-engine',
+]
+[project.optional-dependencies]
+dev = [
+    'oxigraph',
+    'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git']
+json =   ['json2rdf']
+table = ['pandas', 'json2rdf']
+sparqlconstruct = ['pyoxigraph']
+infandval = ['pytqshacl']
 
 [project.scripts]
 rdf-rules = "rdf_rules:main"
