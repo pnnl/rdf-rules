@@ -1,0 +1,50 @@
+# Note: This is restrictive but it might be possible
+# by using a .gitignore there
+# First, ignore everything
+*
+# Now, whitelist anything that's a directory
+!*/
+# And all the file types you're interested in.
+# don't ignore gitignore, hah
+!.gitignore
+
+# data REFS
+!*.dvc
+!dvc.lock
+!.dvcignore
+
+# scripts and progs
+!*.py
+# scratch
+_.py 
+
+
+# queries
+!*.rq
+!*.sql
+
+# doc
+!*.md
+
+
+# config
+!.python-version
+!*.ini
+!*.toml
+!*.yaml
+!*.yml
+!uv.lock
+# scratch
+_.yaml
+_.yml
+
+
+# container stuff
+!Containerfile
+!Dockerfile
+!.containerignore
+
+
+# still secrets out
+*.secrets.*
+*.secret.*
