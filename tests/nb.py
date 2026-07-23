@@ -54,8 +54,8 @@ def _():
     _ = b.data_and_meta(b.data(''), b.meta,
             include={
                 #'data',
-                #'data-metaPO',
-                'data-meta-metatriple'
+                'data-metaPO',
+                #'data-meta-metatriple'
             })
     _ = list(_)
     _

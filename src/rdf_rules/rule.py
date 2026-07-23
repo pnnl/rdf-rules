@@ -7,10 +7,12 @@ Triples = Iterable[Triple]
 from abc import ABC, abstractmethod
 class Base(ABC):
     """essential functionality for subclassing"""
-    def __call__(self, db: Store) -> Iterable[Quad]:
+    def __call__(self, db: Store,
+          
+                  ) -> Iterable[Quad]:
         d = self.data(db)
         #yield from d
-        m = self.meta()
+        m = self.meta
         # chunked
         Quad
         yield from self.meta_and_data(d, m)
@@ -67,7 +69,7 @@ class Base(ABC):
         sep = '.\n'
         if includes.data_meta   in include:
             #                           dropping meta subject
-            _ = sep.join(f"<<{dm[0]}>> {dm[1][1]} {dm[1][2]}" for dm in dsms(data) )
+            _ = sep.join(f"<<{dm[0]}>> {dm[1].predicate} {dm[1].subject}" for dm in dsms(data) )
             if _ and (not _.endswith(sep)): _ = _+sep
             _ = parse(_, format=RdfFormat.TURTLE) # ntriples doesn't do meta
             yield from _
