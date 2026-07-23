@@ -1,48 +1,78 @@
 from pyoxigraph import Store, Quad, Triple
-from typing import Iterable
+from typing import Iterable, Callable
 Triples = Iterable[Triple]
+#from rdf_engine.rules import Rule #how to use the type sig?
 
 
-class Base:
+from abc import ABC, abstractmethod
+class Base(ABC):
+    """essential functionality for subclassing"""
     def __call__(self, db: Store) -> Iterable[Quad]:
         d = self.data(db)
         #yield from d
         m = self.meta()
+        # chunked
+        Quad
         yield from self.meta_and_data(d, m)
 
+    @abstractmethod  
+    def data(self) -> Iterable[Triple]:
+        """must implement"""
+        raise NotImplementedError
+
+    @abstractmethod
+    def meta(self, triple: Triple) -> Iterable[Triple]:
+        """must implement. can return empty iterable. """
+        raise NotImplementedError
+
+    # ___repr___ not 'required' but user responsibility for nicer logging
+
+    from .prefixes import prefixes
     @staticmethod
-    def meta_and_data(data: Triples, meta: Triples| dict ) ->Iterable[Quad]:
-        # https://github.com/pnnl/BIM2RDF/blob/e4e946010c12ed92972d7d76e5a328bb424702ec/rules/src/bim2rdf/rules/rule.py#L54-L73
-        if isinstance(meta, dict): meta = Base.meta2triples(meta)
-        rdf = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
-        ds = Store()
-        ds.bulk_extend(Quad(*t) for t in data)
-        mv = ((m.predicate, m.object) for m in meta )
-        mv = map(lambda a: f"({a[0]} {a[1]})", mv)
-        mv = '\n'.join(mv)
-        q  = """
-        construct {
-        ?s ?p ?o.
-        <<?s ?p ?o>> ?mp ?mo.
-        }
-        where {
-        ?s ?p ?o.
-            VALUES (?mp ?mo) {
-            mv
-        } }
+    def data_and_meta(
+        data: Triples,
+        meta: Callable[[Triple], Triples] | None,
+        meta_prefix=prefixes['meta'],
+        include ={'data', 'data-metaPO'}) \
+            ->Iterable[Triple]:
+        class includes:
+            data =       'data'
+            data_meta  = 'data-metaPO'
+            data_metat = 'data-meta-metatriple'
+        for _ in include: assert(_ in {includes.data, includes.data_meta, includes.data_metat })
         """
-        q = q.replace('mv', mv)
-        yield from (Quad(*t) for t in ds.query(q))
-    @staticmethod
-    def meta2triples(m: dict) -> Triples:
-        m['id'] = 'doesntmatter'
-        from json2rdf import j2r
-        from semantic_explorer.prefixes import prefixes
-        p = 'ts.meta'
-        assert(p in prefixes)
-        _ = j2r(m, key_prefix=(p, prefixes[p]))
-        from pyoxigraph import RdfFormat, parse
-        _ = parse(_, format=RdfFormat.TURTLE,)
-        _ = (Triple(q.subject, q.predicate, q.object) for q in _ )
-        _ = (t for t in _ if t.object.value != 'doesntmatter')
-        yield from _
+        returns 
+        ```
+          ?s ?p ?o.                             # 'data'
+        <<?s ?p ?o>> ?mp                 ?mo.   # 'data-metaPO': more immediately 'useful'
+        <<?s ?p ?o>> meta:meta <<?ms ?mp ?mo>>. # 'data-meta-metatriple': most general
+        ```
+        Bypass associating metadata by specifying `meta=None`.
+        """
+        if (meta is None) and ('data' in include): yield from data
+        assert(meta is not None)
+
+        if includes.data        in include:
+            yield from data
+        def dms(d, ms):
+            for m in ms: yield (d, m)
+        def dsms(ds,):
+            for d in ds:
+                for d, m in dms(d, meta(d)):
+                    yield d, m
+        # going through serialization to compactly represent meta triples
+        # doing it in python is ugly
+        # rdfns = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+        from pyoxigraph import parse, RdfFormat
+        sep = '.\n'
+        if includes.data_meta   in include:
+            #                           dropping meta subject
+            _ = sep.join(f"<<{dm[0]}>> {dm[1][1]} {dm[1][2]}" for dm in dsms(data) )
+            if _ and (not _.endswith(sep)): _ = _+sep
+            _ = parse(_, format=RdfFormat.TURTLE) # ntriples doesn't do meta
+            yield from _
+        if includes.data_metat   in include:
+            _ = sep.join(f"<<{dm[0]}>> <{meta_prefix+'meta'}> <<{dm[1]}>>" for dm in dsms(data) )
+            if _ and (not _.endswith(sep)): _ = _+sep
+            _ = parse(_, format=RdfFormat.TURTLE)
+            yield from _
