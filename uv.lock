@@ -669,6 +669,7 @@ dependencies = [
 
 [package.optional-dependencies]
 dev = [
+    { name = "marimo" },
     { name = "oxigraph" },
     { name = "sparql-editor" },
 ]
@@ -690,6 +691,7 @@ table = [
 requires-dist = [
     { name = "json2rdf", marker = "extra == 'json'" },
     { name = "json2rdf", marker = "extra == 'table'" },
+    { name = "marimo", marker = "extra == 'dev'" },
     { name = "oxigraph", marker = "extra == 'dev'" },
     { name = "pandas", marker = "extra == 'table'" },
     { name = "pyoxigraph", marker = "extra == 'sparqlconstruct'" },

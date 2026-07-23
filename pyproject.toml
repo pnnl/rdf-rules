@@ -13,7 +13,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     'oxigraph',
-    'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git']
+    'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git',
+    'marimo',
+    ]
 json =   ['json2rdf']
 table = ['pandas', 'json2rdf']
 sparqlconstruct = ['pyoxigraph']
