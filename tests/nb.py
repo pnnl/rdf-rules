@@ -13,10 +13,10 @@ def _():
 
 @app.cell
 def _():
-
     import rdf_rules.rule as rr
 
     class TestBase(rr.Base):
+        #data_and_meta_options = {'include': {'data', } }
         def data(self, db):
             _ = """
             # --- Prefixes to shorten URIs ---
@@ -51,14 +51,10 @@ def _():
             return _
 
     b = TestBase()
-    _ = b.data_and_meta(b.data(''), b.meta,
-            include={
-                #'data',
-                'data-metaPO',
-                #'data-meta-metatriple'
-            })
+    _ = b('')
     _ = list(_)
     _
+    #b.data_and_meta_options, rr.Base.data_and_meta_options
     return
 
 
