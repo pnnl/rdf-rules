@@ -1,7 +1,11 @@
 
+from .rdf import URI
 
-def make(prefixes={}, base='rdf-rules'):
-    _ = {'meta': f'urn:{base}:meta:'}
+type = dict[str, URI]
+def make(prefixes:type ={}, base='rdf-rules') -> type:
+    _ = {'meta': f'urn:{base}:meta:',
+         'data': f'urn:{base}:data:'
+         }
     _ = {**_, **prefixes,} # prefixes overrides
     # 'sub' namespace to distinguish identifiers
     prefixes = {}

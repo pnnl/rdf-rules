@@ -1,5 +1,5 @@
 from pyoxigraph import Store, Quad, Triple
-from typing import Iterable, Callable
+from typing import Iterable, Callable, Any
 Triples = Iterable[Triple]
 #from rdf_engine.rules import Rule #how to use the type sig?
 
@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 class Base(ABC):
     data_and_meta_options: dict = {'include': {'data', 'data-metaPO'} }
     """essential functionality for subclassing"""
-    def __call__(self, db: Store,
+    def __call__(self, db: Store = Store(),
           
                   ) -> Iterable[Quad]:
         data = self.data(db)
@@ -18,25 +18,58 @@ class Base(ABC):
 
     @abstractmethod  
     def data(self, db) -> Iterable[Triple]:
-        """must implement"""
+        """must implement. it must always produce data."""
         raise NotImplementedError
 
     @abstractmethod
-    def meta(self, triple: Triple) -> Iterable[Triple]:
+    def meta(self, data_triple: Triple) -> Iterable[Triple]:
         """must implement. can return empty iterable. """
         raise NotImplementedError
 
-    # ___repr___ not 'required' but user responsibility for nicer logging
+    @abstractmethod
+    def params(self) -> dict[str, Any]:
+        """must implement. """
+        raise NotImplementedError
 
+    def __repr__(self) -> str:
+        p = ','.join(f"{k}={v}" for k,v in self.params().items() )
+        return f"{self.__class__.__name__}({p})"
+
+
+class BaseMeta(Base):
+    """
+    mixin for typical meta handling
+    where params are simple (key,value) pairs.
+    """
+    data_and_meta_options: dict = {'include': {'data', 'data-metaPO'} }
+
+    from functools import cache
+    @cache
+    def _constmeta(self, ) -> Triples:
+        # 'const'ant, does not depend on data
+        assert('data-metaPO' in self.data_and_meta_options['include'])
+        _ = self.params()
+        from json2rdf import json2rdf as j2r
+        _ = j2r(_, subject_id_keys={}, # doesn't matter b/c subject will be stripped
+                key_prefix=('p', prefixes['meta'] ),
+                )
+        from pyoxigraph import parse, RdfFormat
+        _ = parse(_, RdfFormat.TURTLE)
+        _ = frozenset(_)    # not generator
+        return _            # not generator
+    
+    def meta(self, data_triple) -> Triples:
+        _ =  self._constmeta()
+        yield from _ 
 
 
 from .prefixes import prefixes
 def data_and_meta(
-    data: Triples,
-    meta: Callable[[Triple], Triples] | None,
-    meta_prefix=prefixes['meta'],
-    include ={'data', 'data-metaPO'}) \
-        ->Iterable[Triple]:
+        data: Triples,
+        meta: Callable[[Triple], Triples] | None,
+        meta_prefix=prefixes['meta'],
+        include ={'data', 'data-metaPO'}) \
+            ->Iterable[Triple]:
     class includes:
         data =       'data'
         data_meta  = 'data-metaPO'
@@ -55,6 +88,11 @@ def data_and_meta(
     assert(meta is not None)
 
     if includes.data        in include:
+        # need to keep around data if it's a gen
+        if any(i in {includes.data_meta, includes.data_metat} for i in include):
+            from collections.abc import Iterator
+            if isinstance(data, Iterator):
+                data = frozenset(data)
         yield from data
     def dms(d, ms):
         for m in ms: yield (d, m)
@@ -69,7 +107,7 @@ def data_and_meta(
     sep = '.\n'
     if includes.data_meta   in include:
         #                           dropping meta subject
-        _ = sep.join(f"<<{dm[0]}>> {dm[1].predicate} {dm[1].subject}" for dm in dsms(data) )
+        _ = sep.join(f"<<{dm[0]}>> {dm[1].predicate} {dm[1].object}" for dm in dsms(data) )
         if _ and (not _.endswith(sep)): _ = _+sep
         _ = parse(_, format=RdfFormat.TURTLE) # ntriples doesn't do meta
         yield from _

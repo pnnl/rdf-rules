@@ -1,0 +1,5 @@
+CustomerID,FirstName,LastName,Email,PhoneNumber,SignUpDate
+1001,John,Doe,john.doe@example.com,555-0199,2026-01-15
+1002,Jane,Smith,jane.smith@example.com,555-0143,2026-02-20
+1003,Bob,Johnson,bob.j@example.com,555-0188,2026-03-12
+1004,Alice,Williams,alice.w@example.com,555-0171,2026-04-05

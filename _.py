@@ -1,158 +1,388 @@
-from pathlib import Path
-build_dir = Path(__file__).parent
-assert('build' == build_dir.parts[-1])
+from project import project_root
+from gridatlas.cache import cache as pcache # persistant cache
+from functools import cached_property
+from pyoxigraph import Store
 
-cmds = {}
-def register_cmd(f):
-    cmds[f.__name__] = f
-    return f
+_ = {_:f'urn:gk:{_}:' for _ in
+    {   'data', 'meta',
+        }}
+std_prefixes = {
+    's223': 'http://data.ashrae.org/standard223#',
+    'cim':  'http://iec.ch/TC57/CIM100#',  # i think it's this
+    'rdf':  'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+    'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+    'qudt':  'http://qudt.org/schema/qudt/',
+    'qudt.unit': 'http://qudt.org/vocab/unit',
+    'ct':       'https://github.com/DataTreehouse/chrontext#'
+}
+prefixes = std_prefixes.copy()
+for k,v in _.items():
+    prefixes[k] = v
+    prefixes[k+'.id'] = f'{v}id:'
+del _
 
+class Data:
 
-
-
-class File:
-    def __init__(self, path: Path) -> None:
-        self.path = Path(path)
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.path})"
-    def meta(self):
-        return self.meta2triples({'name': self.path.name,  })
-    
-
-class TTLLoader(File, Base):
-    def data(self, _: Store) -> Iterable[Quad]:
-        from pyoxigraph import RdfFormat, parse
-        _ = open(self.path)
-        _ = parse(_, format=RdfFormat.TURTLE,)
-        yield from _
-
-class TableLoader(File, Base):
-    def ttl(self,) -> Iterable[Quad]:
-        if self.path.suffix.lower() == '.csv':
+    class Buildings:
+        path = project_root / 'data' / 'buildings_df.csv'
+        @cached_property
+        def df(self):
             from pandas import read_csv
             _ = read_csv(self.path)
             _ = _.convert_dtypes()
-            _ = _.to_dict(orient='records')
-        else: raise ValueError('not handled')
-        from json2rdf import j2r
-        from semantic_explorer.prefixes import prefixes
-        idp =   'ts.anon'
-        kp =    'ts'
-        _ = j2r(_, 
-                subject_id_keys=(), deanon=True, id_prefix=(idp, prefixes[idp]), 
-                key_prefix=(kp, prefixes[kp]),
-                sort=True)
-        return _
+            return _
         
-    def data(self, _: Store) -> Iterable[Quad]:
-        from pyoxigraph import RdfFormat, parse
-        _ = self.ttl()
-        _ = parse(_, format=RdfFormat.TURTLE,)
-        yield from _
+        @cached_property
+        def json(self):
+            _ = self.df
+            _ = _.to_dict(orient='records')
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def bdgjson():
+                return j2r(self.json,
+                    subject_id_keys=('OBJECTID',),
+                    id_prefix=( 'data.id',  prefixes['data.id']),
+                    key_prefix=('data',     prefixes['data']),
+                    )
+            return bdgjson()
+    buildings = Buildings()
+
+    class Meters:
+        path = project_root / 'xfmr-assignment' / 'input' / 'meters_gdf.geojson'
+        @cached_property
+        def json(self):
+            _ = open(self.path)
+            from json import load
+            _ = load(_)
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def mtrjson():
+                return j2r(self.json,
+                    subject_id_keys=('OBJECTID',),
+                    id_prefix=( 'data.id',  prefixes['data.id']),
+                    key_prefix=('data',     prefixes['data']),
+                    )
+            return mtrjson()
+    meters = Meters()
+
+    class Transformers:
+        path = project_root / 'xfmr-assignment' / 'input' / 'xfmrs_gdf.geojson'
+        @cached_property
+        def json(self):
+            _ = open(self.path)
+            from json import load
+            _ = load(_)
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def mtrjson():
+                return j2r(self.json,
+                    subject_id_keys=('OBJECTID',),
+                    id_prefix=( 'data.id',  prefixes['data.id']),
+                    key_prefix=('data',     prefixes['data']),
+                    )
+            return mtrjson()
+    transformers = Transformers()
+
+    class MetersBuildings:
+        path = project_root / 'xfmr-assignment' / 'output' / 'merged_meters_buildings.csv'
+        @cached_property
+        def df(self):
+            from pandas import read_csv
+            _ = read_csv(self.path)
+            _ = _.convert_dtypes()
+            # interpret in mapping
+            # _ = _[['OBJECTID_x', 'OBJECTID_y']]
+            # _ = _.rename({
+            #     'OBJECTID_x': 'meter_id',       # bad
+            #     'OBJECTID_y': 'building_id',    # bad
+            #               },  axis='columns')
+            # assert('meter_id')
+            return _
+        
+        @cached_property
+        def json(self):
+            _ = self.df
+            _ = _.to_dict(orient='records', )
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def bdgmtrjson():
+                return j2r(self.json,
+                    subject_id_keys=(),
+                    id_prefix=( 'data.id',   prefixes['data.id']),
+                    key_prefix=('data',      prefixes['data']),
+                    deanon=True,
+                    )
+            return bdgmtrjson()
+    meters_buildings = MetersBuildings()
+
+    class BuildingsTransformers:
+        path = project_root / 'xfmr-assignment' / 'output' / 'grouped_building_to_transformer_assignments.csv'
+        @cached_property
+        def df(self):
+            from pandas import read_csv
+            _ = read_csv(self.path)
+            _ = _.convert_dtypes()
+            return _
+        
+        @cached_property
+        def json(self):
+            _ = self.df
+            _ = _.to_dict(orient='records', )
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def bdgxfmrjson():
+                return j2r(self.json,
+                    subject_id_keys=(),
+                    id_prefix=( 'data.id',   prefixes['data.id']),
+                    key_prefix=('data',      prefixes['data']),
+                    deanon=True,
+                    )
+            return bdgxfmrjson()
+    buildings_transformers = BuildingsTransformers()
+
+    class BuildingsStock:
+        # TODO: this is the same data as Buildings. can remove that data
+        path = project_root / 'xfmr-assignment' / 'input' / 'buildings_elec.csv'
+        @cached_property
+        def df(self):
+            from pandas import read_csv
+            _ = read_csv(self.path)
+            _ = _.convert_dtypes()
+            return _
+        
+        @cached_property
+        def json(self):
+            _ = self.df
+            _ = _.to_dict(orient='records', )
+            return _
+        
+        @cached_property
+        def rdf(self) -> str:
+            from json2rdf import j2r
+            @pcache
+            def bdgstockjson():
+                return j2r(self.json,
+                    subject_id_keys=(),
+                    id_prefix=( 'data.id',   prefixes['data.id']),
+                    key_prefix=('data',      prefixes['data']),
+                    deanon=True,
+                    )
+            return bdgstockjson()
+    buildings_stock = BuildingsStock()
+data = Data()
 
 
-class Construct(File, Base):
-    def meta(self):
-        return self.meta2triples({'name': self.path.name,  })
+class Rules:
+    @staticmethod
+    def data_and_meta(ds, ms):
+        #https://github.com/pnnl/BIM2RDF/blob/e4e946010c12ed92972d7d76e5a328bb424702ec/rules/src/bim2rdf/rules/rule.py#L54
+        s = Store()
+        from pyoxigraph import Quad
+        s.bulk_extend(Quad(*t) for t in ds)
+        #mv = ((m.predicate, m.object) for m in ms )
+        mv = map(lambda a: f"({a[0]} {a[1]})", ms)
+        mv = '\n'.join(mv)
+        # making meta triples as a query instead of python
+        q  = """
+        construct {
+        ?s ?p ?o.
+        <<?s ?p ?o>> ?mp ?mo.
+        }
+        where {
+        ?s ?p ?o.
+          VALUES (?mp ?mo) {
+            mv
+        } }
+        """
+        q = q.replace('mv', mv)
+        yield from (Quad(*t) for t in s.query(q))
 
-    def data(self, db: Store) -> Iterable[Quad]:
-        _ = open(self.path)
-        _ = _.read()
-        _ = db.query(_)
-        _ = (Quad(*t) for t in _)
-        yield from _
+    def data(self,):
+        from pyoxigraph import parse, RdfFormat
+        for d in (
+            data.buildings,
+            data.meters,
+            data.transformers,
+            data.meters_buildings,
+            data.buildings_transformers,
+            data.buildings_stock,
+        ):
+            from pyoxigraph import NamedNode, Literal
+            class DataLoader:
+                def __init__(self, data) -> None:
+                    self.data = data
+                def __repr__(self) -> str:
+                    return f"{self.__class__.__name__}({self.data.path.name})"
+                def __call__(self, _db):
+                    _ = parse(self.data.rdf, format=RdfFormat.TURTLE)
+                    _ = (t for t in _ if t.object.value != "null") # dont need nulls        
+                    yield from \
+                        Rules.data_and_meta(_,
+                            [(NamedNode(prefixes['meta']+'name'), Literal(self.data.path.name))])
+            yield DataLoader(d)
 
-def path(p: str| Path) ->Path:
-    if isinstance(p, str): p =    Path(p)
-    assert(isinstance(p, Path))
-    return p
 
-@register_cmd
-def mk_tsdb(data: Path, out: Path = Path('tsdb.duckdb')):
-    data, out = map(path, [data, out])
-    assert(out.suffix.lower() == '.duckdb')
-    if not out.parent.exists():
+    class Ontology:
+        from pathlib import Path
+        path = Path(__file__).parent / 'ontology' / 'outs' / 'ontology.ttl'
+        def __repr__(self) -> str:
+            return f"Ontology({self.path.name})"
+        def __call__(self, _db):
+            from pyoxigraph import parse, RdfFormat
+            _ = open(self.path)
+            _ = parse(_, format=RdfFormat.TURTLE)
+            from pyoxigraph import NamedNode, Literal
+            yield from \
+                Rules.data_and_meta(_,
+                    [(NamedNode(prefixes['meta']+'name'), Literal(self.path.name))])
+    ontology = Ontology()
+
+
+    class Mapping:
+        from pathlib import Path
+        def __init__(self, q: Path) -> None:
+            self.q = q
+        def __repr__(self) -> str:
+            return f"{self.__class__.__name__}({self.q.name})"
+        def __call__(self, db):
+            q = self.q.read_text()
+            q =  db.query(q)
+            from pyoxigraph import NamedNode, Literal
+            yield from \
+                Rules.data_and_meta(q,
+                    [(NamedNode(prefixes['meta']+'mapping'),Literal(self.q.name))] )
+
+            
+    class TopQuadrant:
+        from pathlib import Path
+        from typing import Literal
+        def __init__(self, run: Literal['inference'] | Literal['validation'] ) -> None:
+            self.run = run
+        def __repr__(self) -> str:
+            return f"TopQuadrant({self.run})"
+        def __call__(self, db: Store):
+            _ = queries['tq.graph']
+            _ = db.query(_)
+            tmp = Path('tq.tmp.ttl')
+            if tmp.exists(): tmp.unlink()
+            from pyoxigraph import serialize, RdfFormat
+            s = serialize(_,
+                prefixes=prefixes,
+                output=tmp, format=RdfFormat.TURTLE)
+            if self.run == 'inference':
+                from pytqshacl.run import infer
+                _ = infer(tmp)
+            else:
+                assert(self.run == 'validation')
+                from pytqshacl.run import validate
+                _ = validate(tmp)
+            tmp.unlink()
+            from pyoxigraph import parse, RdfFormat
+            _ = parse(_.stdout, format=RdfFormat.TURTLE)
+            from pyoxigraph import NamedNode, Literal
+            yield from \
+                Rules.data_and_meta(_,
+                    [(NamedNode(prefixes['meta']+'tqshacl'),Literal(self.run))] )
+    inference  = TopQuadrant('inference')
+    validation = TopQuadrant('validation')
+            
+
+    def mappings(self, ):
+        from pathlib import Path
+        dir = Path(__file__).parent / 'mapping'
+        for m in dir.glob('**/*.rq'):
+            yield self.Mapping(m)
+rules = Rules()
+
+
+from pathlib import Path
+def map_(out=Path('db'), infer=True, validate=False):
+    db = out
+    db = Path(db)
+    if db.exists():
         from shutil import rmtree
-        rmtree(out.parent)
-        out.mkdir(parents=True)
-    if out.exists(): out.unlink()
-    if 're1' in str(data).lower():
-        #device_id,ts,id,data,units,type,room,zone
-        import duckdb
-        con = duckdb.connect(out)
-        tblnm = data.stem
-        # load data asis
-        con.sql(f"""
-            CREATE TABLE {tblnm} AS
-            SELECT *
-            FROM read_csv('{data}', header=True, auto_detect=True);
-        """)
-        # ..then create 'std' tbl
-        from semantic_explorer.tsdb.chrontext import defaults
-        con.sql(f"""
-        CREATE view {defaults['table_name']} AS 
-        SELECT id as {defaults['id_col']}, ts as {defaults['time_col']}, data as {defaults['val_col']}
-        FROM  {tblnm};
-        """)
+        rmtree(db)
     else:
-        raise ValueError('not handled')
-    return out
-
-
-def mkdir(pth: Path):
-    pth = path(pth)
-    if pth.is_file():
-        dir = pth.parent
-    else:
-        dir = pth
-    dir.mkdir(parents=True, exist_ok=True)
-    return dir
-
-
-@register_cmd
-def map_(data: Path | str, mapping: Path | str, out=Path('db')):
-    data, mapping, out = map(path, [data, mapping, out])
-    assert(data.is_dir())
-    assert(mapping.is_dir())
-    if out.exists():
-        from shutil import rmtree
-        rmtree(out, )
-    mkdir(out)
-
-
+        db.mkdir(exist_ok=False)
     from pyoxigraph import Store
-    s = Store(out)
-    class Rules: ...
-    rules = Rules()
-    rules.data =      [TTLLoader(t) for t in      data.glob('**/*.ttl')]
-    l = list
-    rules.data =      [TableLoader(t) for t in    l(data.glob('**/*.csv'))+l(data.glob('**/*.parquet'))] + rules.data
-    rules.construct = [Construct(m)   for m in      mapping.glob('**/*.rq') ]
-    
-    from rdf_engine import Engine
-    _ = Engine(db= s, rules=rules.data, derand=False, MAX_NCYCLES=1)
-    _ = _.run()
-    from semantic_explorer.prefixes import prefixes
-    _ = Engine(db=_, derand=prefixes['ts.anon'],  rules=rules.construct, MAX_NCYCLES=5,)
-    _ = _.run()
-    return out
-
-
-@register_cmd
-def ttl(db: Path('db'), out = Path('data.ttl')):
-    db, out = map(path, [db, out])
-    q = build_dir / 'queries' / 'mapped.rq'
-    q = open(q)
-    q = q.read()
     db = Store(db)
-    _ = db.query(q)
-    from pyoxigraph import serialize
-    from semantic_explorer.prefixes import prefixes
-    #prefixes = {k:v for k,v in prefixes.items() if not k.startswith('bdg.') } # pyoxigraph mangles?
-    serialize(_, prefixes=prefixes, output=out)
+    from rdf_engine import Engine
+    _ = [rules.ontology]+list(rules.data())
+    engine = Engine(db=db, rules=_,                      derand=False,               MAX_NCYCLES=1)
+    _ = engine.run()
+    engine = Engine(db=_,  rules=list(rules.mappings()), derand=prefixes['meta.id'], MAX_NCYCLES=5)
+    _ = engine.run()
+    if infer:
+        engine = Engine(db=_,  rules=[rules.inference],      derand=prefixes['meta.id'], MAX_NCYCLES=10)
+        _ = engine.run()
+    if validate:
+        # takes too long. pending result of https://gitlab.pnnl.gov/conlight/semint/-/issues/91
+        engine = Engine(db=_,  rules=[rules.validation],     derand=prefixes['meta.id'], MAX_NCYCLES=1)
+        _ = engine.run()
+    return Path(out)
+
+
+class Queries:
+    def __init__(self) -> None:
+        self.path = Path(__file__).parent / 'queries'
+        assert(self.path.is_dir())
+    
+    def __iter__(self):
+        _ = self.path.glob('**/*.rq')
+        for p in _: yield p.stem , open(p).read()
+
+    def dict(self):
+        return dict(self)
+queries = Queries().dict()
+
+
+def ttl(db=Path('db'), out=Path('model.ttl'),):
+    db = Path(db)
+    out = Path(out)
+    assert(db.is_dir())
+    from pyoxigraph import Store
+    s =  Store(db)
+    f = queries['mapped_and_inferred.graph']
+    f = s.query(f)
+    from pyoxigraph import serialize, RdfFormat
+    s = serialize(f,
+        prefixes=prefixes,
+        output=out, format=RdfFormat.TURTLE)
     return out
 
 
-if __name__ == '__main__':
+def onto(out=Path('ontology.ttl')):
+    out = Path(out)
+    if not out.parent.exists():
+        out.parent.mkdir(parents=True)
+    
+
+
+if __name__ == "__main__":
+    class Cmds:
+        map =   staticmethod(map_)
+        ttl =   staticmethod(ttl)
+        onto =  staticmethod(onto)
+    cmds = Cmds()
     from fire import Fire
     Fire(cmds)

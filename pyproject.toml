@@ -9,15 +9,17 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     'rdf-engine',
+     'plum', 'beartype',
 ]
 [project.optional-dependencies]
 dev = [
+    'uritools',
     'oxigraph',
     'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git',
     'marimo',
     ]
 json =   ['json2rdf']
-table = ['pandas', 'json2rdf']
+table = ['pandas', 'json2rdf', 'openpyxl']
 sparqlconstruct = ['pyoxigraph']
 infandval = ['pytqshacl']
 
