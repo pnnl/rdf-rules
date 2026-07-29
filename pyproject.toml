@@ -8,12 +8,12 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    'uritools',
     'rdf-engine',
      'plum', 'beartype',
 ]
 [project.optional-dependencies]
 dev = [
-    'uritools',
     'oxigraph',
     'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git',
     'marimo',
