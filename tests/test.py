@@ -50,7 +50,7 @@ import pandas as pd
 def test_table(table, file_regression):
     t = table
     import rdf_rules.data.table as rt
-    tr = rt.Table(t)
+    tr = rt.Table(t, name='test')
     _ = tr()
     _ = serialize(_)
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
