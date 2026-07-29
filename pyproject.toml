@@ -14,14 +14,15 @@ dependencies = [
 ]
 [project.optional-dependencies]
 dev = [
-    'oxigraph',
-    'sparql-editor @ https://gitlab.pnnl.gov/conlight/sparql-editor.git',
+    'rdflib', 
+    'pytest', 'pytest-regressions',
     'marimo',
     ]
 json =   ['json2rdf']
 table = ['pandas', 'json2rdf', 'openpyxl']
 sparqlconstruct = ['pyoxigraph']
 infandval = ['pytqshacl']
+
 
 [project.scripts]
 rdf-rules = "rdf_rules:main"

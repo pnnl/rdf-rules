@@ -1,0 +1,55 @@
+{
+    "id": "id",
+    "id2": "id2",
+    "k": [
+        {
+            "k": 3,
+            "kk": "dil",
+            "kkk": true,
+            "kd": {
+                "id2": "kkk2",
+                "id": "kkk",
+                "dkk": {
+                    "deep": 3
+                }
+            }
+        }
+    ],
+    "kk": {
+        "k": {
+            "k": "did"
+        }
+    },
+    "ed": {},
+    "el": [],
+    "l": [
+        1,
+        2,
+        3,
+        "a",
+        "b",
+        "c"
+    ],
+    "dwid": {
+        "id": 33,
+        "k": "v"
+    },
+    "dwbadid": {
+        "id": "sdfsdf / \" : ! @ # ",
+        "refid": "sdfsdf / \" : ! @ # ",
+        "/": "fs",
+        "horrible key @ *$ \" / ": "!@#$ sdf  ",
+        "s p a c e s": "spaced out",
+        "key_w_us": "has nice key",
+        "CamelCase": "has nice key",
+        "~.": "not allowed at the end",
+        ".": "not allowed at the end",
+        "~": "tilde sucks",
+        "x~x": "tilde sucks"
+    },
+    "--- Clearance (On/Off) Constraints ---": {
+        "name": "--- Clearance (On/Off) Constraints ---",
+        "value": "---",
+        "internalDefinitionName": "--- Clearance (On/Off) Constraints ---"
+    }
+}

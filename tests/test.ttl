@@ -1,0 +1,10 @@
+# --- Prefixes to shorten URIs ---
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://w3.org> .
+@prefix foaf: <http://xmlns.com> .
+@prefix ex:   <http://example.org> .
+ex:alice123
+    rdf:type foaf:Person ;
+    foaf:name "Alice Smith"^^xsd:string ;
+    foaf:age 30 .

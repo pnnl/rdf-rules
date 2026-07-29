@@ -171,6 +171,15 @@ wheels = [
 ]
 
 [[package]]
+name = "iniconfig"
+version = "2.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/72/34/14ca021ce8e5dfedc35312d08ba8bf51fdd999c576889fc2c24cb97f4f10/iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730", size = 20503, upload-time = "2025-10-18T21:55:43.219Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12", size = 7484, upload-time = "2025-10-18T21:55:41.639Z" },
+]
+
+[[package]]
 name = "itsdangerous"
 version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -417,20 +426,6 @@ wheels = [
 ]
 
 [[package]]
-name = "oxigraph"
-version = "0.5.9"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c1/25/949524f81295166391711b5a17892c07aa0f0b2e96eb59c3fb1b76f10772/oxigraph-0.5.9.tar.gz", hash = "sha256:3a8a1f1edad06fba950a9e0a137fefe7270dcbacbae5f510f857d269c388c3c7", size = 6537209, upload-time = "2026-06-18T17:07:49.078Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/01/0c/afea05d39c46977785f6b2272c0b93e6d60ab71306e17529a05e649cf49b/oxigraph-0.5.9-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:bd3db8d6518148aaba52345e319feda5fd4980708068cd3eac1582dfb9d372d0", size = 6813795, upload-time = "2026-06-18T17:07:38.309Z" },
-    { url = "https://files.pythonhosted.org/packages/32/15/7bdee9b68a9457781a5a003ead0181884517cb5e2d1d984715776bf706d7/oxigraph-0.5.9-py3-none-macosx_11_0_arm64.whl", hash = "sha256:2c9019be100aaa46c42ad7e352419418c5d38bbfeefd498b4961e5dc27ff065a", size = 6265764, upload-time = "2026-06-18T17:07:39.921Z" },
-    { url = "https://files.pythonhosted.org/packages/b8/cf/a8793843440ce3769f6f700b81b063641ab31f7cc9a84cc8491478731bb4/oxigraph-0.5.9-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:5a225b866c424ded3410773930ae6853670e84547cc7e7833a462a5e503742f2", size = 8067662, upload-time = "2026-06-18T17:07:42.439Z" },
-    { url = "https://files.pythonhosted.org/packages/6d/97/57fc0fc4c6bfaf2fb3f2bd848ca4cb9c45436878598b411de1499a630177/oxigraph-0.5.9-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:4fb4792d2231766df13366769387140f08ec39503be36b51ff1354d2c154c596", size = 8562366, upload-time = "2026-06-18T17:07:44.124Z" },
-    { url = "https://files.pythonhosted.org/packages/06/15/fe279e8659e9cbb381ce5481903eda66ce2885d75ba6827a1333569ac007/oxigraph-0.5.9-py3-none-win_amd64.whl", hash = "sha256:0a6b9df33d3c61bca2701466db5437e04c8e5cafd114c777183e2038a84eddce", size = 5758256, upload-time = "2026-06-18T17:07:46.045Z" },
-    { url = "https://files.pythonhosted.org/packages/f8/b7/42c35af9ad5b5ad1a48b839cd29751d992ab0808c2205944c2a75ef936a0/oxigraph-0.5.9-py3-none-win_arm64.whl", hash = "sha256:2e32f6357e879e0c6f5b592913622c0257b41fb8ed64fca1d4322cfb8655838f", size = 5431689, upload-time = "2026-06-18T17:07:47.575Z" },
-]
-
-[[package]]
 name = "packaging"
 version = "26.2"
 source = { registry = "https://pypi.org/simple" }
@@ -490,6 +485,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/30/4b/90c937815137d43ce71ba043cd3566221e9df6b9c805f24b5d138c9d40a7/parso-0.8.7.tar.gz", hash = "sha256:eaaac4c9fdd5e9e8852dc778d2d7405897ec510f2a298071453e5e3a07914bb1", size = 401824, upload-time = "2026-05-01T23:13:02.138Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/99/5d/8268b644392ee874ee82a635cd0df1773de230bde356c38de28e298392cc/parso-0.8.7-py2.py3-none-any.whl", hash = "sha256:a8926eb2a1b915486941fdbd31e86a4baf88fe8c210f25f2f35ecec5b574ca1c", size = 107025, upload-time = "2026-05-01T23:12:58.867Z" },
+]
+
+[[package]]
+name = "pluggy"
+version = "1.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3", size = 69412, upload-time = "2025-05-15T12:30:07.975Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746", size = 20538, upload-time = "2025-05-15T12:30:06.134Z" },
 ]
 
 [[package]]
@@ -602,6 +606,48 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz", hash = "sha256:c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc", size = 6851574, upload-time = "2026-01-21T03:57:59.36Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/10/bd/c038d7cc38edc1aa5bf91ab8068b63d4308c66c4c8bb3cbba7dfbc049f9c/pyparsing-3.3.2-py3-none-any.whl", hash = "sha256:850ba148bd908d7e2411587e247a1e4f0327839c40e2e5e6d05a007ecc69911d", size = 122781, upload-time = "2026-01-21T03:57:55.912Z" },
+]
+
+[[package]]
+name = "pytest"
+version = "9.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "iniconfig" },
+    { name = "packaging" },
+    { name = "pluggy" },
+    { name = "pygments" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e4/47/b9efed96c114afcfa3c9d3fe98a76a1d14c74a9e266d397cf6eb64be5e01/pytest-9.1.1.tar.gz", hash = "sha256:1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313", size = 1636369, upload-time = "2026-06-19T10:58:32.857Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl", hash = "sha256:37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c", size = 386536, upload-time = "2026-06-19T10:58:31.347Z" },
+]
+
+[[package]]
+name = "pytest-datadir"
+version = "1.8.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b4/46/db060b291999ca048edd06d6fa9ee95945d088edc38b1172c59eeb46ec45/pytest_datadir-1.8.0.tar.gz", hash = "sha256:7a15faed76cebe87cc91941dd1920a9a38eba56a09c11e9ddf1434d28a0f78eb", size = 11848, upload-time = "2025-07-30T13:52:12.518Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8f/7a/33895863aec26ac3bb5068a73583f935680d6ab6af2a9567d409430c3ee1/pytest_datadir-1.8.0-py3-none-any.whl", hash = "sha256:5c677bc097d907ac71ca418109adc3abe34cf0bddfe6cf78aecfbabd96a15cf0", size = 6512, upload-time = "2025-07-30T13:52:11.525Z" },
+]
+
+[[package]]
+name = "pytest-regressions"
+version = "2.11.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+    { name = "pytest-datadir" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ba/0f/1d6b8cc851596be52c401af53fd0d844e72921b0b11866b88995673cd320/pytest_regressions-2.11.0.tar.gz", hash = "sha256:d4a86092f979eb25d2403c51b2b61039781c4c7c7a364a56b9fa838872a650f7", size = 117474, upload-time = "2026-05-25T12:09:01.796Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/97/61/fe772eda66bb8e2ee72da2937382aa4f803ca1e41092ca8d59953e96262c/pytest_regressions-2.11.0-py3-none-any.whl", hash = "sha256:fcb2bbcfb2fda256624d434c88cb1e4003667b7e078ee4084887cf839bbdf831", size = 25556, upload-time = "2026-05-25T12:09:00.292Z" },
 ]
 
 [[package]]
@@ -735,14 +781,15 @@ dependencies = [
     { name = "beartype" },
     { name = "plum" },
     { name = "rdf-engine" },
+    { name = "uritools" },
 ]
 
 [package.optional-dependencies]
 dev = [
     { name = "marimo" },
-    { name = "oxigraph" },
-    { name = "sparql-editor" },
-    { name = "uritools" },
+    { name = "pytest" },
+    { name = "pytest-regressions" },
+    { name = "rdflib" },
 ]
 infandval = [
     { name = "pytqshacl" },
@@ -766,14 +813,15 @@ requires-dist = [
     { name = "json2rdf", marker = "extra == 'table'" },
     { name = "marimo", marker = "extra == 'dev'" },
     { name = "openpyxl", marker = "extra == 'table'" },
-    { name = "oxigraph", marker = "extra == 'dev'" },
     { name = "pandas", marker = "extra == 'table'" },
     { name = "plum" },
     { name = "pyoxigraph", marker = "extra == 'sparqlconstruct'" },
+    { name = "pytest", marker = "extra == 'dev'" },
+    { name = "pytest-regressions", marker = "extra == 'dev'" },
     { name = "pytqshacl", marker = "extra == 'infandval'" },
     { name = "rdf-engine" },
-    { name = "sparql-editor", marker = "extra == 'dev'", git = "https://gitlab.pnnl.gov/conlight/sparql-editor.git" },
-    { name = "uritools", marker = "extra == 'dev'" },
+    { name = "rdflib", marker = "extra == 'dev'" },
+    { name = "uritools" },
 ]
 provides-extras = ["dev", "json", "table", "sparqlconstruct", "infandval"]
 
@@ -809,17 +857,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031, upload-time = "2024-12-04T17:35:28.174Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050, upload-time = "2024-12-04T17:35:26.475Z" },
-]
-
-[[package]]
-name = "sparql-editor"
-version = "0.1.0"
-source = { git = "https://gitlab.pnnl.gov/conlight/sparql-editor.git#8dd2343b77d6752d78c3ebebc5f476fb1852de06" }
-dependencies = [
-    { name = "marimo" },
-    { name = "pandas" },
-    { name = "pyoxigraph" },
-    { name = "rdflib" },
 ]
 
 [[package]]

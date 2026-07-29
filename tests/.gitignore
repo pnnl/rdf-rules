@@ -1,2 +1,3 @@
 !test*.csv
 !test*.ttl
+!test*.json

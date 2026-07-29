@@ -62,6 +62,7 @@ class CSVReader:
     @dispatch
     def json(self, src: Path):
         _ = pd.read_csv(src)
+        _ = _.convert_dtypes()
         _ = _.to_json()
         return _
     @dispatch
