@@ -44,13 +44,17 @@ def serialize(ts):
 
 import pandas as pd
 @pytest.mark.parametrize('table',[
-                        #Path('test.csv'),
-            pd.read_csv(Path('test.csv')) 
+            (pd.read_csv(Path('test.csv')), {'name': 'test'}),
+            (Path('test.csv'),  {}),
             ] )
 def test_table(table, file_regression):
-    t = table
+    p, kw = table
     import rdf_rules.data.table as rt
-    tr = rt.Table(t, name='test')
+    tr = rt.make(p, **kw)
     _ = tr()
+    _ = tr()  # twice to make sure it returns data
     _ = serialize(_)
+    assert(len(_)>5)
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
+
+

@@ -1,2 +1,3 @@
-from beartype.claw import beartype_this_package 
-beartype_this_package()                          
+from beartype.claw import beartype_this_package
+beartype_this_package()
+# conflicts with plum dispatch:?

@@ -4,57 +4,57 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rdf:Statement ;
-    rdf:object "John" ;
-    rdf:predicate ns2:FirstName ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
-    ns1:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "555-0199" ;
-    rdf:predicate ns2:PhoneNumber ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
+    rdf:object "john.doe@example.com" ;
+    rdf:predicate ns2:Email ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
     ns1:name "test" .
 
 [] a rdf:Statement ;
     rdf:object 1001 ;
     rdf:predicate ns2:CustomerID ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
     ns1:name "test" .
 
 [] a rdf:Statement ;
     rdf:object "Doe" ;
     rdf:predicate ns2:LastName ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
     ns1:name "test" .
 
 [] a rdf:Statement ;
-    rdf:object _:N75c918775bb342f38665ab374bfe00cb ;
-    rdf:predicate rdf:_0 ;
-    rdf:subject _:Nc63a724801e349518a488780fd7e9cb2 ;
-    ns1:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "john.doe@example.com" ;
-    rdf:predicate ns2:Email ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
-    ns1:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "2026-01-15" ;
-    rdf:predicate ns2:SignUpDate ;
-    rdf:subject _:N75c918775bb342f38665ab374bfe00cb ;
+    rdf:object "John" ;
+    rdf:predicate ns2:FirstName ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
     ns1:name "test" .
 
 [] a rdf:Statement ;
     rdf:object rdf:Seq ;
     rdf:predicate rdf:type ;
-    rdf:subject _:Nc63a724801e349518a488780fd7e9cb2 ;
+    rdf:subject _:N57e9bdbb05a34f0fa87c90582ee10ace ;
     ns1:name "test" .
 
-_:Nc63a724801e349518a488780fd7e9cb2 a rdf:Seq ;
-    rdf:_0 _:N75c918775bb342f38665ab374bfe00cb .
+[] a rdf:Statement ;
+    rdf:object _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N57e9bdbb05a34f0fa87c90582ee10ace ;
+    ns1:name "test" .
 
-_:N75c918775bb342f38665ab374bfe00cb ns2:CustomerID 1001 ;
+[] a rdf:Statement ;
+    rdf:object "2026-01-15" ;
+    rdf:predicate ns2:SignUpDate ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "555-0199" ;
+    rdf:predicate ns2:PhoneNumber ;
+    rdf:subject _:N1881bcd5f7154180b1fb9d8c85a9d2b6 ;
+    ns1:name "test" .
+
+_:N57e9bdbb05a34f0fa87c90582ee10ace a rdf:Seq ;
+    rdf:_0 _:N1881bcd5f7154180b1fb9d8c85a9d2b6 .
+
+_:N1881bcd5f7154180b1fb9d8c85a9d2b6 ns2:CustomerID 1001 ;
     ns2:Email "john.doe@example.com" ;
     ns2:FirstName "John" ;
     ns2:LastName "Doe" ;

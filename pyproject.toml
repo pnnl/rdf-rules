@@ -14,8 +14,9 @@ dependencies = [
 ]
 [project.optional-dependencies]
 dev = [
-    'rdflib', 
-    'pytest', 'pytest-regressions',
+    # testing
+        'rdflib', 
+        'pytest', 'pytest-regressions',
     'marimo',
     ]
 json =   ['json2rdf']
