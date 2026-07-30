@@ -7,7 +7,6 @@ class TTL(BaseMeta):
     class type:
         class Str(str):...
 
-    from ..prefixes import prefixes
     def __init__(self, ttl: Callable[[], type.Str] | type.Str,
             name: str | None = None, *,
             additional_params = {},
@@ -41,7 +40,6 @@ class TTL(BaseMeta):
         
 
 class TTLReader(BaseMeta):
-    from ..prefixes import prefixes
     def __init__(self, path: Path,
             additional_params = {},
                  ) -> None:
