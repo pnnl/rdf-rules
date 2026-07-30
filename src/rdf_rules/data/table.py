@@ -1,7 +1,13 @@
 from collections.abc import Callable
 from pathlib import Path
 
-    
+
+class paths:
+    class type:
+        from typing import Annotated
+        from beartype.vale import Is
+        csv = Annotated[Path, Is[lambda p: p.suffix == '.csv']]
+
 
 import pandas as pd
 from ..base import BaseMeta
@@ -54,7 +60,7 @@ class Table(BaseMeta):
 
 class CSVReader(BaseMeta):
     from ..prefixes import prefixes
-    def __init__(self, path: Path,
+    def __init__(self, path: paths.type.csv,
             reading_args: dict = {},
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],

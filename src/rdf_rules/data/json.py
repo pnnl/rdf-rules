@@ -3,6 +3,12 @@ from pathlib import Path
 
 class Str(str): ...
 
+class path:
+    from typing import Annotated
+    from beartype.vale import Is
+    type = Annotated[Path, Is[lambda p: p.suffix in {'.json', '.geojson'}]]
+
+
 from ..base import BaseMeta
 class JSON(BaseMeta):
     from ..prefixes import prefixes
@@ -50,7 +56,7 @@ class JSON(BaseMeta):
 
 class JsonReader(BaseMeta):
     from ..prefixes import prefixes
-    def __init__(self, path: Path,
+    def __init__(self, path: path.type,
             reading_args: dict = {},
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],

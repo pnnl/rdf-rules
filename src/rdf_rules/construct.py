@@ -2,9 +2,15 @@ from pathlib import Path
 
 class Str(str): ...
 
+class path:
+    from typing import Annotated
+    from beartype.vale import Is
+    type = Annotated[Path, Is[lambda p: p.suffix in {'.sparql', '.rq'}]]
+
+
 from .base import BaseMeta
 class ConstructQuery(BaseMeta):
-    def __init__(self, *, query: Str | None = None, path: Path | None = None,
+    def __init__(self, *, query: Str | None = None, path: path.type | None = None,
             name: str | None = None,
             additional_params = {},):
         assert(query or path)

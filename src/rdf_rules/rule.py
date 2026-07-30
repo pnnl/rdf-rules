@@ -14,7 +14,7 @@ class Maker:
     import pandas as pd
     from .data import table as tr
     @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: p.suffix == '.csv'] ], **options) -> tr.CSVReader:
+    def make(self, path: tr.paths.type.csv, **options) -> tr.CSVReader:
         return self.tr.CSVReader(path, **options)
     @dispatch
     def make(self, df: pd.DataFrame, **options) -> tr.Table:
@@ -22,7 +22,7 @@ class Maker:
 
     from .data import json as jr
     @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: p.suffix in {'.json', '.geojson'}] ], **options) -> jr.JsonReader:
+    def make(self, path: jr.path.type, **options) -> jr.JsonReader:
         return self.jr.JsonReader(path, **options)
     @dispatch
     def make(self, json: dict | jr.Str, **options) -> jr.JSON:
@@ -30,7 +30,7 @@ class Maker:
 
     from .data import rdf as rr
     @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: p.suffix == '.ttl'] ], **options) -> rr.TTLReader:
+    def make(self, path: rr.paths.type.ttl, **options) -> rr.TTLReader:
         return self.rr.TTLReader(path, **options)
     @dispatch
     def make(self, ttl: rr.TTL.type.Str, **options) -> rr.TTL:
@@ -38,11 +38,18 @@ class Maker:
 
     from . import construct as cr
     @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: (p.suffix in {'.rq','.sparql'}) ] ], **options) -> cr.ConstructQuery:
+    def make(self, path: cr.path.type, **options) -> cr.ConstructQuery:
         return self.cr.ConstructQuery(path=path, **options)
     @dispatch
     def make(self, query: cr.Str, **options) -> cr.ConstructQuery:
         return self.cr.ConstructQuery(query=query, **options)
 
+    # from . import ontology as orr
+    # def make()
+    # inference  = TopQuadrant('inference')
+    # validation = TopQuadrant('validation')
+
+
+# put path in eech mod
 
 make = Maker()

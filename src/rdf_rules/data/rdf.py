@@ -1,6 +1,11 @@
 from collections.abc import Callable
 from pathlib import Path
 
+class paths:
+    class type:
+        from typing import Annotated
+        from beartype.vale import Is
+        ttl = Annotated[Path, Is[lambda p: p.suffix == '.ttl']]
 
 from ..base import BaseMeta
 class TTL(BaseMeta):
@@ -40,7 +45,7 @@ class TTL(BaseMeta):
         
 
 class TTLReader(BaseMeta):
-    def __init__(self, path: Path,
+    def __init__(self, path: paths.type.ttl,
             additional_params = {},
                  ) -> None:
         self.path = path
