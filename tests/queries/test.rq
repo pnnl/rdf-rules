@@ -1,0 +1,11 @@
+PREFIX ex: <http://example.com/>
+PREFIX foaf: <http://xmlns.com>
+
+CONSTRUCT {
+?person foaf:name ?fakeName;
+    ex:age 30.
+}
+WHERE {
+    VALUES ?person { ex:Person1 ex:Person2 }
+    VALUES ?fakeName { "John Doe" }
+}

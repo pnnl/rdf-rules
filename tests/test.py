@@ -1,6 +1,8 @@
 from pathlib import Path
 test_dir = Path(__file__).parent.relative_to(Path('.').absolute())
 data_dir = test_dir / 'data'
+query_dir = test_dir / 'queries'
+
 import pytest
 regression = "regression"
 @pytest.fixture(scope="session")
@@ -48,6 +50,7 @@ import pandas as pd
 from json import load as jload
 import rdf_rules.data.json as rj
 import rdf_rules.data.rdf as rr
+import rdf_rules.construct as cr
 specs = [
 # csv
 (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}), 
@@ -58,6 +61,9 @@ specs = [
 # rdf
 (Path(data_dir / 'test.json'),  {'additional_params': {'additionalk':'additionalv'}}),
 ( rr.TTL.type.Str(Path(data_dir / 'test.ttl').read_text()),  {'name': 'test' }),
+# construct
+(Path(query_dir  / 'test.rq'), {} ),
+(cr.Str(Path(query_dir  / 'test.rq').read_text()),  {}),
 ]
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):

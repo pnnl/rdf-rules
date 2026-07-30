@@ -1,9 +1,6 @@
 from collections.abc import Callable
 from pathlib import Path
 
-
-
-
 class Str(str): ...
 
 from ..base import BaseMeta
@@ -81,5 +78,4 @@ class JsonReader(BaseMeta):
     def data(self, db):
         _ = db
         return self.json.data(_)
-
 

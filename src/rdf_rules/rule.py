@@ -36,5 +36,13 @@ class Maker:
     def make(self, ttl: rr.TTL.type.Str, **options) -> rr.TTL:
         return self.rr.TTL(ttl, **options)
 
+    from . import construct as cr
+    @dispatch
+    def make(self, path: Annotated[Path, Is[lambda p: (p.suffix in {'.rq','.sparql'}) ] ], **options) -> cr.ConstructQuery:
+        return self.cr.ConstructQuery(path=path, **options)
+    @dispatch
+    def make(self, query: cr.Str, **options) -> cr.ConstructQuery:
+        return self.cr.ConstructQuery(query=query, **options)
+
 
 make = Maker()
