@@ -88,22 +88,3 @@ class JsonReader(BaseMeta):
         return self.json.data(_)
 
 
-
-class Maker:
-    # dispatch does not work with beartype_this_package 
-    # https://github.com/beartype/plum/issues/291
-    # but this class is a workaround
-    from beartype.vale import Is
-    from typing import Annotated
-    from pathlib import Path
-    from plum import dispatch
-    @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: p.suffix in {'.json', '.geojson'}] ], **options) -> JsonReader:
-        return JsonReader(path, **options)
-    @dispatch
-    def make(self, json: str | dict | Callable[[], str | dict], **options) -> JSON:
-        return JSON(json, **options)
-
-    def __call__(self, *p , **kw):
-        return self.make(*p, **kw)
-make = Maker()

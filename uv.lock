@@ -779,7 +779,12 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "beartype" },
+    { name = "json2rdf" },
+    { name = "openpyxl" },
+    { name = "pandas" },
     { name = "plum" },
+    { name = "pyoxigraph" },
+    { name = "pytqshacl" },
     { name = "rdf-engine" },
     { name = "uritools" },
 ]
@@ -791,39 +796,24 @@ dev = [
     { name = "pytest-regressions" },
     { name = "rdflib" },
 ]
-infandval = [
-    { name = "pytqshacl" },
-]
-json = [
-    { name = "json2rdf" },
-]
-sparqlconstruct = [
-    { name = "pyoxigraph" },
-]
-table = [
-    { name = "json2rdf" },
-    { name = "openpyxl" },
-    { name = "pandas" },
-]
 
 [package.metadata]
 requires-dist = [
     { name = "beartype" },
-    { name = "json2rdf", marker = "extra == 'json'" },
-    { name = "json2rdf", marker = "extra == 'table'" },
+    { name = "json2rdf" },
     { name = "marimo", marker = "extra == 'dev'" },
-    { name = "openpyxl", marker = "extra == 'table'" },
-    { name = "pandas", marker = "extra == 'table'" },
+    { name = "openpyxl" },
+    { name = "pandas" },
     { name = "plum" },
-    { name = "pyoxigraph", marker = "extra == 'sparqlconstruct'" },
+    { name = "pyoxigraph" },
     { name = "pytest", marker = "extra == 'dev'" },
     { name = "pytest-regressions", marker = "extra == 'dev'" },
-    { name = "pytqshacl", marker = "extra == 'infandval'" },
+    { name = "pytqshacl" },
     { name = "rdf-engine" },
     { name = "rdflib", marker = "extra == 'dev'" },
     { name = "uritools" },
 ]
-provides-extras = ["dev", "json", "table", "sparqlconstruct", "infandval"]
+provides-extras = ["dev"]
 
 [[package]]
 name = "rdflib"

@@ -1,6 +1,8 @@
 from collections.abc import Callable
 from pathlib import Path
 
+    
+
 import pandas as pd
 from ..base import BaseMeta
 class Table(BaseMeta):
@@ -84,21 +86,4 @@ class CSVReader(BaseMeta):
 
 ### TODO: xl reader
 
-class Maker:
-    # dispatch does not work with beartype_this_package 
-    # https://github.com/beartype/plum/issues/291
-    # but this class is a workaround
-    from beartype.vale import Is
-    from typing import Annotated
-    from pathlib import Path
-    from plum import dispatch
-    @dispatch
-    def make(self, path: Annotated[Path, Is[lambda p: p.suffix == '.csv'] ], **options) -> CSVReader:
-        return CSVReader(path, **options)
-    @dispatch
-    def make(self, df: pd.DataFrame | Callable[[], pd.DataFrame] , **options) -> Table:
-        return Table(df, **options)
 
-    def __call__(self, *p , **kw):
-        return self.make(*p, **kw)
-make = Maker()

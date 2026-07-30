@@ -43,15 +43,17 @@ def serialize(ts):
     return _
 
 
+import rdf_rules.rule as rule
+
 import pandas as pd
 @pytest.mark.parametrize('table',[
-            (lambda : pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),  # 0
-            (Path(data_dir / 'test.csv'),  {}),                                     # 1
+            (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),   # 0
+            (Path(data_dir / 'test.csv'),  {}),                             # 1
             ] )
 def test_table(table, file_regression):
     p, kw = table
     import rdf_rules.data.table as rt
-    data(rt.make(p, **kw), file_regression)
+    data(rule.make(p, **kw), file_regression)
 
 def data(rule, file_regression):
     _ = rule()
@@ -62,13 +64,13 @@ def data(rule, file_regression):
 
 from json import load as jload
 @pytest.mark.parametrize('json',[
-            (lambda : jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),    # 0
-            (Path(data_dir / 'test.json'),  {}),                                                                        # 1
+            (jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }), # 0
+            (Path(data_dir / 'test.json'),  {}),                                                                                # 1
             ] )
 def test_json(json, file_regression):
     p, kw = json
     import rdf_rules.data.json as rj
-    data(rj.make(p, **kw), file_regression)
+    data(rule.make(p, **kw), file_regression)
 
 
 # todo: could be just test_rule

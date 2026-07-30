@@ -11,6 +11,14 @@ dependencies = [
     'uritools',
     'rdf-engine',
      'plum', 'beartype',
+    # tables
+    'pandas', 'json2rdf', 'openpyxl',
+    #json 
+    'json2rdf', 
+    # sparql
+    'pyoxigraph',
+    # inference & validation
+    'pytqshacl',
 ]
 [project.optional-dependencies]
 dev = [
@@ -19,11 +27,6 @@ dev = [
         'pytest', 'pytest-regressions',
     'marimo',
     ]
-json =   ['json2rdf']
-table = ['pandas', 'json2rdf', 'openpyxl']
-sparql_construct = ['pyoxigraph']
-inf_and_val = ['pytqshacl']
-
 
 [project.scripts]
 rdf-rules = "rdf_rules:main"
