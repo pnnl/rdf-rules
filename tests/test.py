@@ -45,33 +45,26 @@ def serialize(ts):
 
 import rdf_rules.rule as rule
 
-import rdf_rules.data.table as rt
 import pandas as pd
-@pytest.mark.parametrize('table',[
-            (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),   # 0
-            (Path(data_dir / 'test.csv'),  {}),                             # 1
-            ] )
-def test_table(table, file_regression):
-    p, kw = table
+from json import load as jload
+import rdf_rules.data.json as rj
+specs = [
+(pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}), 
+(Path(data_dir / 'test.csv'),  {}),
+(rj.Str(open(Path(data_dir / 'test.json')).read()), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),
+(jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }), 
+(Path(data_dir / 'test.json'),  {}),                                                                                
+]
+@pytest.mark.parametrize('spec',specs)
+def test_rule(spec, file_regression):
+    p, kw = spec
     data(rule.make(p, **kw), file_regression)
-
 def data(rule, file_regression):
     _ = rule()
     _ = rule()  # twice to make sure it returns data
     _ = serialize(_)
     assert(len(_)>5)
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
-
-from json import load as jload
-import rdf_rules.data.json as rj
-@pytest.mark.parametrize('json',[
-            (rj.Str(open(Path(data_dir / 'test.json')).read()), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),
-            (jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }), 
-            (Path(data_dir / 'test.json'),  {}),                                                                                
-            ] )
-def test_json(json, file_regression):
-    p, kw = json
-    data(rule.make(p, **kw), file_regression)
 
 
 # todo: could be just test_rule

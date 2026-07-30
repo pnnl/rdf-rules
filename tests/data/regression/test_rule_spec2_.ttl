@@ -1,0 +1,31 @@
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <urn:rdf-rules:data:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a rdf:Statement ;
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Neea8e51944894049a7373b8130475ea2 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:Neea8e51944894049a7373b8130475ea2 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Neea8e51944894049a7373b8130475ea2 ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:Neea8e51944894049a7373b8130475ea2 ;
+    ns1:additionalk "additionalv" .
+
+_:Neea8e51944894049a7373b8130475ea2 ns2:id "id" ;
+    ns2:p "v" .
+
