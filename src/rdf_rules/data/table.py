@@ -58,7 +58,7 @@ class CSVReader(BaseMeta):
         self.data_prefix = data_prefix
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
-        self.table = Table( pd.read_csv(path, **reading_args) ,
+        self.table = Table( lambda: pd.read_csv(path, **reading_args) ,
             data_prefix=data_prefix,
             data_id_prefix=data_id_prefix,
             json2rdf_options = json2rdf_options,
@@ -87,7 +87,7 @@ class Maker:
     def make(self, path: Annotated[Path, Is[lambda p: p.suffix == '.csv'] ], **options) -> CSVReader:
         return CSVReader(path, **options)
     @dispatch
-    def make(self, df: pd.DataFrame, **options) -> Table:
+    def make(self, df: pd.DataFrame | Callable[[], pd.DataFrame] , **options) -> Table:
         return Table(df, **options)
 
     def __call__(self, *p , **kw):

@@ -46,7 +46,7 @@ def serialize(ts):
 
 import pandas as pd
 @pytest.mark.parametrize('table',[
-            (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),   # 0
+            (lambda : pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),   # 0
             (Path(data_dir / 'test.csv'),  {}),                             # 1
             ] )
 def test_table(table, file_regression):
