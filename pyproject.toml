@@ -21,8 +21,8 @@ dev = [
     ]
 json =   ['json2rdf']
 table = ['pandas', 'json2rdf', 'openpyxl']
-sparqlconstruct = ['pyoxigraph']
-infandval = ['pytqshacl']
+sparql_construct = ['pyoxigraph']
+inf_and_val = ['pytqshacl']
 
 
 [project.scripts]
