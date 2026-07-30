@@ -1,13 +1,15 @@
 from pathlib import Path
 test_dir = Path(__file__).parent
+data_dir = test_dir / 'data'
 import pytest
 
+regression = "regression"
 @pytest.fixture(scope="session")
 def lazy_datadir() -> Path:
-    return test_dir / "regression_data"
+    return data_dir / regression
 @pytest.fixture(scope="session")
 def original_datadir() -> Path:
-    return test_dir / "regression_data"
+    return data_dir / regression
 
 from rdflib import Graph
 def is_eq(g1: Graph|str, g2: Graph|str):
@@ -44,8 +46,8 @@ def serialize(ts):
 
 import pandas as pd
 @pytest.mark.parametrize('table',[
-            (pd.read_csv(Path('test.csv')), {'name': 'test'}),
-            (Path('test.csv'),  {}),
+            (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}),   # 0
+            (Path(data_dir / 'test.csv'),  {}),                             # 1
             ] )
 def test_table(table, file_regression):
     p, kw = table
