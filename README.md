@@ -1,10 +1,11 @@
-common 'rules' for creating rdf data using 'rdf-engine':
+A slightly optionionated common set of 'rules'
+for creating rdf data using 'rdf-engine':
 * Data Rules:
     - table loader
     - json loader
+    - ttl loader
 * SPARQLConstructRule
 
-see bim2rdf, gridkitched, controlscore.
-
+These rules come together in the 'engine'.
 
 develop with `uv sync --all-packages --all-extras`.
