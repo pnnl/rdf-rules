@@ -1,5 +1,6 @@
 from pyoxigraph import Store, Quad, Triple
-from typing import Iterable, Callable, Any
+from typing import Any
+from collections.abc import Callable, Iterable
 Triples = Iterable[Triple]
 #from rdf_engine.rules import Rule #how to use the type sig?
 
