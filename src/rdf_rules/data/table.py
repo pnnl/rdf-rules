@@ -1,7 +1,5 @@
-from typing import Literal, Callable
+from typing import Callable
 from pathlib import Path
-
-types = Literal['csv'] | Literal['parquet'] | Literal['excel']
 
 from ..rule import BaseMeta
 import pandas as pd
