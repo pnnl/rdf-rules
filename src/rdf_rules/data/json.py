@@ -1,7 +1,17 @@
 from collections.abc import Callable
 from pathlib import Path
 
-from ..rule import BaseMeta
+
+def validate(s, **kw):
+    from json import loads
+    try:
+        loads(s, **kw)
+        return True
+    except:
+        return False
+
+
+from ..base import BaseMeta
 class JSON(BaseMeta):
     from ..prefixes import prefixes
     def __init__(self, json: Callable[[], str | dict] | str | dict,

@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from pathlib import Path
 
-from ..rule import BaseMeta
+from ..base import BaseMeta
 import pandas as pd
 class Table(BaseMeta):
     from ..prefixes import prefixes
@@ -73,7 +73,6 @@ class CSVReader(BaseMeta):
         return self.table.data(_)
 
 ### TODO: xl reader
-
 
 class Maker:
     # dispatch does not work with beartype_this_package 

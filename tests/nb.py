@@ -13,7 +13,7 @@ def _():
 
 @app.cell
 def _():
-    import rdf_rules.rule as rr
+    import rdf_rules.base as rr
 
     class TestBase(rr.Base):
         def params(): return {'include': 'd' }
