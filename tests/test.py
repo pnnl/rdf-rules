@@ -44,16 +44,20 @@ def serialize(ts):
 
 
 import rdf_rules.rule as rule
-
 import pandas as pd
 from json import load as jload
 import rdf_rules.data.json as rj
+import rdf_rules.data.rdf as rr
 specs = [
+# csv
 (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}), 
 (Path(data_dir / 'test.csv'),  {}),
+# json
 (rj.Str(open(Path(data_dir / 'test.json')).read()), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),
 (jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }), 
-(Path(data_dir / 'test.json'),  {}),                                                                                
+# rdf
+(Path(data_dir / 'test.json'),  {'additional_params': {'additionalk':'additionalv'}}),
+( rr.TTL.type.Str(Path(data_dir / 'test.ttl').read_text()),  {'name': 'test' }),
 ]
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):
@@ -66,5 +70,3 @@ def data(rule, file_regression):
     assert(len(_)>5)
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
 
-
-# todo: could be just test_rule

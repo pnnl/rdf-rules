@@ -3,17 +3,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 [] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns2:p ;
-    rdf:subject _:Nb33f50e5b5834d59ade5fc81154c56bb ;
-    ns1:path "data/test.json" .
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Na66fda51b4444fd4aaacea84aa1aca22 ;
+    ns1:additionalk "additionalv" .
 
 [] a rdf:Statement ;
     rdf:object "id" ;
     rdf:predicate ns2:id ;
-    rdf:subject _:Nb33f50e5b5834d59ade5fc81154c56bb ;
+    rdf:subject _:Na66fda51b4444fd4aaacea84aa1aca22 ;
     ns1:path "data/test.json" .
 
-_:Nb33f50e5b5834d59ade5fc81154c56bb ns2:id "id" ;
+[] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:Na66fda51b4444fd4aaacea84aa1aca22 ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:Na66fda51b4444fd4aaacea84aa1aca22 ;
+    ns1:path "data/test.json" .
+
+_:Na66fda51b4444fd4aaacea84aa1aca22 ns2:id "id" ;
     ns2:p "v" .
 
