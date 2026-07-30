@@ -1,5 +1,4 @@
 from typing import Literal, Callable
-
 from pathlib import Path
 
 types = Literal['csv'] | Literal['parquet'] | Literal['excel']
@@ -75,9 +74,7 @@ class CSVReader(BaseMeta):
         _ = db
         return self.table.data(_)
 
-
 ### TODO: xl reader
-
 
 
 class Maker:
