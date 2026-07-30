@@ -86,6 +86,7 @@ class Maker:
     # but this class is a workaround
     from beartype.vale import Is
     from typing import Annotated
+    from pathlib import Path
     from plum import dispatch
     @dispatch
     def make(self, path: Annotated[Path, Is[lambda p: p.suffix == '.csv'] ], **options) -> CSVReader:
