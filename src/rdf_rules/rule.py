@@ -28,7 +28,7 @@ class Maker:
     def make(self, path: Annotated[Path, Is[lambda p: p.suffix in {'.json', '.geojson'}] ], **options) -> jr.JsonReader:
         return self.jr.JsonReader(path, **options)
     @dispatch
-    def make(self, json: dict, **options) -> jr.JSON:
+    def make(self, json: dict | jr.Str, **options) -> jr.JSON:
         return self.jr.JSON(json, **options)
 
 

@@ -1,0 +1,19 @@
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <urn:rdf-rules:data:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a rdf:Statement ;
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:N94d261e4bff242ea9dd27020f3bf2b11 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:N94d261e4bff242ea9dd27020f3bf2b11 ;
+    ns1:path "data/test.json" .
+
+_:N94d261e4bff242ea9dd27020f3bf2b11 ns2:id "id" ;
+    ns2:p "v" .
+

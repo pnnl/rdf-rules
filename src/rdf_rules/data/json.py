@@ -2,19 +2,14 @@ from collections.abc import Callable
 from pathlib import Path
 
 
-def validate(s, **kw):
-    from json import loads
-    try:
-        loads(s, **kw)
-        return True
-    except:
-        return False
 
+
+class Str(str): ...
 
 from ..base import BaseMeta
 class JSON(BaseMeta):
     from ..prefixes import prefixes
-    def __init__(self, json: Callable[[], str | dict] | str | dict,
+    def __init__(self, json: Callable[[], Str | dict] | Str | dict,
             name: str | None = None, *,
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
@@ -31,7 +26,7 @@ class JSON(BaseMeta):
 
     #from functools import cache
     #@cache
-    def json(self) -> str | dict:
+    def json(self) -> Str | dict:
         if callable(self._json):
             _ = self._json()
         else:
