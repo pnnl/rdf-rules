@@ -1,8 +1,8 @@
 from collections.abc import Callable
 from pathlib import Path
 
-from ..base import BaseMeta
 import pandas as pd
+from ..base import BaseMeta
 class Table(BaseMeta):
     from ..prefixes import prefixes
     def __init__(self, df: Callable[[], pd.DataFrame] | pd.DataFrame,
@@ -10,12 +10,14 @@ class Table(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
+            additional_params = {}
                  ) -> None:
         self._df = df
         self.name = name if name else str(id(df))
         self.data_prefix = data_prefix
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
+        self.additional_params = additional_params
 
     #from functools import cache
     #@cache
@@ -42,7 +44,10 @@ class Table(BaseMeta):
         yield from _
 
     def params(self):
-        return {'name': self.name }
+        return {
+            'name': self.name,
+            **self.additional_params,
+                 }
         
 
 class CSVReader(BaseMeta):
@@ -52,12 +57,14 @@ class CSVReader(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
+            additional_params = {}
                  ) -> None:
         self.path = path
         self.reading_args = reading_args
         self.data_prefix = data_prefix
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
+        self.additional_params = additional_params
         self.table = Table( lambda: pd.read_csv(path, **reading_args) ,
             data_prefix=data_prefix,
             data_id_prefix=data_id_prefix,
@@ -65,7 +72,10 @@ class CSVReader(BaseMeta):
         )
 
     def params(self):
-        _ = {'path': self.path.as_posix(), } # could do name but path is good enough 
+        _ = {
+            'path': self.path.as_posix(),
+            **self.additional_params
+              } 
         return _
 
     def data(self, db):

@@ -62,7 +62,7 @@ def data(rule, file_regression):
 
 from json import load as jload
 @pytest.mark.parametrize('json',[
-            (lambda : jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'k':'v'} }),    # 0
+            (lambda : jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),    # 0
             (Path(data_dir / 'test.json'),  {}),                                                                        # 1
             ] )
 def test_json(json, file_regression):

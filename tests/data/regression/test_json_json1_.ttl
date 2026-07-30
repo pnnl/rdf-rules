@@ -1,313 +1,313 @@
-@prefix ns1: <urn:rdf-rules:data:> .
-@prefix ns2: <urn:rdf-rules:meta:> .
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <urn:rdf-rules:data:> .
 @prefix ns3: <urn:rdf-rules:data:%> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rdf:Statement ;
-    rdf:object "dil" ;
-    rdf:predicate ns1:kk ;
-    rdf:subject _:Na9884ff11be141f7867baa7778239dc0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "c" ;
-    rdf:predicate rdf:_5 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:N899e8ea58c9d4d249e1f2582c1c7628b ;
-    rdf:predicate ns1:kk ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "kkk2" ;
-    rdf:predicate ns1:id2 ;
-    rdf:subject _:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ;
-    ns2:path "data/test.json" .
+    rdf:object "v" ;
+    rdf:predicate ns2:k ;
+    rdf:subject _:Na6a5073bba4c4dd9b9dbfd9ee64b2e31 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object rdf:Seq ;
     rdf:predicate rdf:type ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "has nice key" ;
-    rdf:predicate ns1:key_w_us ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    rdf:predicate ns1:l ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:N06c54c34f3bc41c9bb3e0aec1803d6b0 ;
-    rdf:predicate ns3:252D--%20Clearance%20%28On%2FOff%29%20Constraints%20--- ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:N41f49401510c46cbbb61371cac7c5a3d ;
-    rdf:predicate ns1:el ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:N05bc1d3456c7451b905bae9e74478045 ;
-    rdf:predicate ns1:dkk ;
-    rdf:subject _:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "--- Clearance (On/Off) Constraints ---" ;
-    rdf:predicate ns1:internalDefinitionName ;
-    rdf:subject _:N06c54c34f3bc41c9bb3e0aec1803d6b0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object rdf:Seq ;
-    rdf:predicate rdf:type ;
-    rdf:subject _:N2caefdfae3ba41298537ca8a8d491fe1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "spaced out" ;
-    rdf:predicate ns1:s%20p%20a%20c%20e%20s ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "tilde sucks" ;
-    rdf:predicate ns3:257E ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object true ;
-    rdf:predicate ns1:kkk ;
-    rdf:subject _:Na9884ff11be141f7867baa7778239dc0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "did" ;
-    rdf:predicate ns1:k ;
-    rdf:subject _:N04146bc7f55e47678d75cc76266cd3ff ;
-    ns2:path "data/test.json" .
+    rdf:subject _:N510b19ecc1224df9b6a9e31e564f213a ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object 3 ;
     rdf:predicate rdf:_2 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object 33 ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N0c9b60a10abc404ea295195931e7e3f0 ;
-    ns2:path "data/test.json" .
+    rdf:object _:Nc720cf2d62444f549968b187e0a85c79 ;
+    rdf:predicate ns2:kk ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object ns1:idsdfsdf%20%2F%20%22%20%3A%20%21%20%40%20%23%20 ;
-    rdf:predicate ns1:refid ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
+    rdf:object "tilde sucks" ;
+    rdf:predicate ns3:257E ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "b" ;
-    rdf:predicate rdf:_4 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "not allowed at the end" ;
-    rdf:predicate ns3:252E ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
+    rdf:object _:N41bb6d0b9cea49eca64f9d90aa7c1228 ;
+    rdf:predicate ns2:k ;
+    rdf:subject _:Nc720cf2d62444f549968b187e0a85c79 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object _:N2caefdfae3ba41298537ca8a8d491fe1 ;
-    rdf:predicate ns1:k ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
+    rdf:object _:N2356dae046064219a548d9643cdba8a7 ;
+    rdf:predicate ns2:dkk ;
+    rdf:subject _:N16b8d6f802d34969b4208d7d0708ef1a ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object _:N0c9b60a10abc404ea295195931e7e3f0 ;
-    rdf:predicate ns1:dwid ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
+    rdf:object _:N0ffe2bc8acde42ed95a8cd36bbb10e34 ;
+    rdf:predicate ns2:ed ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "kkk" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ;
-    ns2:path "data/test.json" .
+    rdf:object 3 ;
+    rdf:predicate ns2:deep ;
+    rdf:subject _:N2356dae046064219a548d9643cdba8a7 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "---" ;
-    rdf:predicate ns1:value ;
-    rdf:subject _:N06c54c34f3bc41c9bb3e0aec1803d6b0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "has nice key" ;
-    rdf:predicate ns1:CamelCase ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ;
-    rdf:predicate ns1:kd ;
-    rdf:subject _:Na9884ff11be141f7867baa7778239dc0 ;
-    ns2:path "data/test.json" .
+    rdf:object "id2" ;
+    rdf:predicate ns2:id2 ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object "--- Clearance (On/Off) Constraints ---" ;
-    rdf:predicate ns1:name ;
-    rdf:subject _:N06c54c34f3bc41c9bb3e0aec1803d6b0 ;
-    ns2:path "data/test.json" .
+    rdf:predicate ns2:name ;
+    rdf:subject _:N45bf75f473e641ac8f8af6c879754af8 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object 2 ;
     rdf:predicate rdf:_1 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object rdf:Seq ;
-    rdf:predicate rdf:type ;
-    rdf:subject _:N41f49401510c46cbbb61371cac7c5a3d ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object 1 ;
-    rdf:predicate rdf:_0 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:Na9884ff11be141f7867baa7778239dc0 ;
-    rdf:predicate rdf:_0 ;
-    rdf:subject _:N2caefdfae3ba41298537ca8a8d491fe1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object 3 ;
-    rdf:predicate ns1:k ;
-    rdf:subject _:Na9884ff11be141f7867baa7778239dc0 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "not allowed at the end" ;
-    rdf:predicate ns3:257E%252E ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "tilde sucks" ;
-    rdf:predicate ns1:x%257Ex ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object "a" ;
-    rdf:predicate rdf:_3 ;
-    rdf:subject _:Nd861ef4b7a8b40899b5e962b99d2ff5a ;
-    ns2:path "data/test.json" .
-
-[] a rdf:Statement ;
-    rdf:object _:N1c87e503b0874a4db451329488f2fbc4 ;
-    rdf:predicate ns1:ed ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object "fs" ;
     rdf:predicate ns3:2F ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "sdfsdf / \" : ! @ # " ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
+    rdf:object _:N510b19ecc1224df9b6a9e31e564f213a ;
+    rdf:predicate ns2:k ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "!@#$ sdf  " ;
-    rdf:predicate ns1:horrible%20key%20%40%20%2A%24%20%22%20%2F%20 ;
-    rdf:subject _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns2:path "data/test.json" .
+    rdf:object "kkk2" ;
+    rdf:predicate ns2:id2 ;
+    rdf:subject _:N16b8d6f802d34969b4208d7d0708ef1a ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "id2" ;
-    rdf:predicate ns1:id2 ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
+    rdf:object _:Na6a5073bba4c4dd9b9dbfd9ee64b2e31 ;
+    rdf:predicate ns2:dwid ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns1:k ;
-    rdf:subject _:N0c9b60a10abc404ea295195931e7e3f0 ;
-    ns2:path "data/test.json" .
+    rdf:object "---" ;
+    rdf:predicate ns2:value ;
+    rdf:subject _:N45bf75f473e641ac8f8af6c879754af8 ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
     rdf:object 3 ;
-    rdf:predicate ns1:deep ;
-    rdf:subject _:N05bc1d3456c7451b905bae9e74478045 ;
-    ns2:path "data/test.json" .
+    rdf:predicate ns2:k ;
+    rdf:subject _:N29ca4b710aff4683948a9244ce5d827a ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object _:N04146bc7f55e47678d75cc76266cd3ff ;
-    rdf:predicate ns1:k ;
-    rdf:subject _:N899e8ea58c9d4d249e1f2582c1c7628b ;
-    ns2:path "data/test.json" .
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nf26941b23e1d45f38b66adfc14c1ee3d ;
+    ns1:path "data/test.json" .
 
 [] a rdf:Statement ;
-    rdf:object _:N817db57064f94f9d9729f9d2d31f33ea ;
-    rdf:predicate ns1:dwbadid ;
-    rdf:subject _:N6ecb09e606ee41e9a045d43f85e25ea1 ;
-    ns2:path "data/test.json" .
+    rdf:object "b" ;
+    rdf:predicate rdf:_4 ;
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
 
-_:N04146bc7f55e47678d75cc76266cd3ff ns1:k "did" .
+[] a rdf:Statement ;
+    rdf:object "did" ;
+    rdf:predicate ns2:k ;
+    rdf:subject _:N41bb6d0b9cea49eca64f9d90aa7c1228 ;
+    ns1:path "data/test.json" .
 
-_:N05bc1d3456c7451b905bae9e74478045 ns1:deep 3 .
+[] a rdf:Statement ;
+    rdf:object "sdfsdf / \" : ! @ # " ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
-_:N41f49401510c46cbbb61371cac7c5a3d a rdf:Seq .
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate rdf:_3 ;
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
 
-_:N899e8ea58c9d4d249e1f2582c1c7628b ns1:k _:N04146bc7f55e47678d75cc76266cd3ff .
+[] a rdf:Statement ;
+    rdf:object "has nice key" ;
+    rdf:predicate ns2:key_w_us ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
-_:N0c9b60a10abc404ea295195931e7e3f0 ns1:id 33 ;
-    ns1:k "v" .
+[] a rdf:Statement ;
+    rdf:object true ;
+    rdf:predicate ns2:kkk ;
+    rdf:subject _:N29ca4b710aff4683948a9244ce5d827a ;
+    ns1:path "data/test.json" .
 
-_:N2caefdfae3ba41298537ca8a8d491fe1 a rdf:Seq ;
-    rdf:_0 _:Na9884ff11be141f7867baa7778239dc0 .
+[] a rdf:Statement ;
+    rdf:object _:N45bf75f473e641ac8f8af6c879754af8 ;
+    rdf:predicate ns3:252D--%20Clearance%20%28On%2FOff%29%20Constraints%20--- ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
 
-_:N06c54c34f3bc41c9bb3e0aec1803d6b0 ns1:internalDefinitionName "--- Clearance (On/Off) Constraints ---" ;
-    ns1:name "--- Clearance (On/Off) Constraints ---" ;
-    ns1:value "---" .
+[] a rdf:Statement ;
+    rdf:object "has nice key" ;
+    rdf:predicate ns2:CamelCase ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
-_:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ns1:dkk _:N05bc1d3456c7451b905bae9e74478045 ;
-    ns1:id "kkk" ;
-    ns1:id2 "kkk2" .
+[] a rdf:Statement ;
+    rdf:object "tilde sucks" ;
+    rdf:predicate ns2:x%257Ex ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
 
-_:Na9884ff11be141f7867baa7778239dc0 ns1:k 3 ;
-    ns1:kd _:Nf0e7247d24fe4b2c9d39b8cf4b1080d0 ;
-    ns1:kk "dil" ;
-    ns1:kkk true .
+[] a rdf:Statement ;
+    rdf:object _:N29ca4b710aff4683948a9244ce5d827a ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N510b19ecc1224df9b6a9e31e564f213a ;
+    ns1:path "data/test.json" .
 
-_:Nd861ef4b7a8b40899b5e962b99d2ff5a a rdf:Seq ;
+[] a rdf:Statement ;
+    rdf:object _:Nf26941b23e1d45f38b66adfc14c1ee3d ;
+    rdf:predicate ns2:el ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "dil" ;
+    rdf:predicate ns2:kk ;
+    rdf:subject _:N29ca4b710aff4683948a9244ce5d827a ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "!@#$ sdf  " ;
+    rdf:predicate ns2:horrible%20key%20%40%20%2A%24%20%22%20%2F%20 ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate rdf:_5 ;
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object 33 ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Na6a5073bba4c4dd9b9dbfd9ee64b2e31 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object 1 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nb977fe719286418593b82149b077adb7 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "not allowed at the end" ;
+    rdf:predicate ns3:252E ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object ns2:idsdfsdf%20%2F%20%22%20%3A%20%21%20%40%20%23%20 ;
+    rdf:predicate ns2:refid ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "not allowed at the end" ;
+    rdf:predicate ns3:257E%252E ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    rdf:predicate ns2:dwbadid ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object _:N16b8d6f802d34969b4208d7d0708ef1a ;
+    rdf:predicate ns2:kd ;
+    rdf:subject _:N29ca4b710aff4683948a9244ce5d827a ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "spaced out" ;
+    rdf:predicate ns2:s%20p%20a%20c%20e%20s ;
+    rdf:subject _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nb977fe719286418593b82149b077adb7 ;
+    rdf:predicate ns2:l ;
+    rdf:subject _:N09e682ce3d9f4eb9bd91e8c2960899d0 ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "kkk" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:N16b8d6f802d34969b4208d7d0708ef1a ;
+    ns1:path "data/test.json" .
+
+[] a rdf:Statement ;
+    rdf:object "--- Clearance (On/Off) Constraints ---" ;
+    rdf:predicate ns2:internalDefinitionName ;
+    rdf:subject _:N45bf75f473e641ac8f8af6c879754af8 ;
+    ns1:path "data/test.json" .
+
+_:N2356dae046064219a548d9643cdba8a7 ns2:deep 3 .
+
+_:N41bb6d0b9cea49eca64f9d90aa7c1228 ns2:k "did" .
+
+_:Nc720cf2d62444f549968b187e0a85c79 ns2:k _:N41bb6d0b9cea49eca64f9d90aa7c1228 .
+
+_:Nf26941b23e1d45f38b66adfc14c1ee3d a rdf:Seq .
+
+_:N510b19ecc1224df9b6a9e31e564f213a a rdf:Seq ;
+    rdf:_0 _:N29ca4b710aff4683948a9244ce5d827a .
+
+_:Na6a5073bba4c4dd9b9dbfd9ee64b2e31 ns2:id 33 ;
+    ns2:k "v" .
+
+_:N16b8d6f802d34969b4208d7d0708ef1a ns2:dkk _:N2356dae046064219a548d9643cdba8a7 ;
+    ns2:id "kkk" ;
+    ns2:id2 "kkk2" .
+
+_:N45bf75f473e641ac8f8af6c879754af8 ns2:internalDefinitionName "--- Clearance (On/Off) Constraints ---" ;
+    ns2:name "--- Clearance (On/Off) Constraints ---" ;
+    ns2:value "---" .
+
+_:N29ca4b710aff4683948a9244ce5d827a ns2:k 3 ;
+    ns2:kd _:N16b8d6f802d34969b4208d7d0708ef1a ;
+    ns2:kk "dil" ;
+    ns2:kkk true .
+
+_:Nb977fe719286418593b82149b077adb7 a rdf:Seq ;
     rdf:_0 1 ;
     rdf:_1 2 ;
     rdf:_2 3 ;
@@ -315,26 +315,26 @@ _:Nd861ef4b7a8b40899b5e962b99d2ff5a a rdf:Seq ;
     rdf:_4 "b" ;
     rdf:_5 "c" .
 
-_:N6ecb09e606ee41e9a045d43f85e25ea1 ns3:252D--%20Clearance%20%28On%2FOff%29%20Constraints%20--- _:N06c54c34f3bc41c9bb3e0aec1803d6b0 ;
-    ns1:dwbadid _:N817db57064f94f9d9729f9d2d31f33ea ;
-    ns1:dwid _:N0c9b60a10abc404ea295195931e7e3f0 ;
-    ns1:ed _:N1c87e503b0874a4db451329488f2fbc4 ;
-    ns1:el _:N41f49401510c46cbbb61371cac7c5a3d ;
-    ns1:id "id" ;
-    ns1:id2 "id2" ;
-    ns1:k _:N2caefdfae3ba41298537ca8a8d491fe1 ;
-    ns1:kk _:N899e8ea58c9d4d249e1f2582c1c7628b ;
-    ns1:l _:Nd861ef4b7a8b40899b5e962b99d2ff5a .
+_:N09e682ce3d9f4eb9bd91e8c2960899d0 ns3:252D--%20Clearance%20%28On%2FOff%29%20Constraints%20--- _:N45bf75f473e641ac8f8af6c879754af8 ;
+    ns2:dwbadid _:Nb28d084ad18b42b69cc317bca8b8e99e ;
+    ns2:dwid _:Na6a5073bba4c4dd9b9dbfd9ee64b2e31 ;
+    ns2:ed _:N0ffe2bc8acde42ed95a8cd36bbb10e34 ;
+    ns2:el _:Nf26941b23e1d45f38b66adfc14c1ee3d ;
+    ns2:id "id" ;
+    ns2:id2 "id2" ;
+    ns2:k _:N510b19ecc1224df9b6a9e31e564f213a ;
+    ns2:kk _:Nc720cf2d62444f549968b187e0a85c79 ;
+    ns2:l _:Nb977fe719286418593b82149b077adb7 .
 
-_:N817db57064f94f9d9729f9d2d31f33ea ns3:252E "not allowed at the end" ;
+_:Nb28d084ad18b42b69cc317bca8b8e99e ns3:252E "not allowed at the end" ;
     ns3:257E "tilde sucks" ;
     ns3:257E%252E "not allowed at the end" ;
     ns3:2F "fs" ;
-    ns1:CamelCase "has nice key" ;
-    ns1:horrible%20key%20%40%20%2A%24%20%22%20%2F%20 "!@#$ sdf  " ;
-    ns1:id "sdfsdf / \" : ! @ # " ;
-    ns1:key_w_us "has nice key" ;
-    ns1:refid ns1:idsdfsdf%20%2F%20%22%20%3A%20%21%20%40%20%23%20 ;
-    ns1:s%20p%20a%20c%20e%20s "spaced out" ;
-    ns1:x%257Ex "tilde sucks" .
+    ns2:CamelCase "has nice key" ;
+    ns2:horrible%20key%20%40%20%2A%24%20%22%20%2F%20 "!@#$ sdf  " ;
+    ns2:id "sdfsdf / \" : ! @ # " ;
+    ns2:key_w_us "has nice key" ;
+    ns2:refid ns2:idsdfsdf%20%2F%20%22%20%3A%20%21%20%40%20%23%20 ;
+    ns2:s%20p%20a%20c%20e%20s "spaced out" ;
+    ns2:x%257Ex "tilde sucks" .
 

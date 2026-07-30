@@ -19,12 +19,14 @@ class JSON(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
+            additional_params = {},
                  ) -> None:
         self._json = json
         self.name = name if name else str(id(json))
         self.data_prefix = data_prefix
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
+        self.additional_params = additional_params
 
 
     #from functools import cache
@@ -50,7 +52,8 @@ class JSON(BaseMeta):
         yield from _
 
     def params(self):
-        return {'name': self.name }
+        return {'name': self.name,
+                **self.additional_params }
         
 
 class JsonReader(BaseMeta):
@@ -60,12 +63,14 @@ class JsonReader(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
+            additional_params = {},
                  ) -> None:
         self.path = path
         self.reading_args = reading_args
         self.data_prefix = data_prefix
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
+        self.additional_params = additional_params
         from json import load
         self.json = JSON( lambda: load(open(path), **reading_args),
             data_prefix=data_prefix,
@@ -73,7 +78,9 @@ class JsonReader(BaseMeta):
             json2rdf_options = json2rdf_options)
 
     def params(self):
-        _ = {'path': self.path.as_posix(), } # could do name but path is good enough
+        _ = {'path': self.path.as_posix(),# could do name but path is good enough
+             **self.additional_params,
+              } 
         return _
 
     def data(self, db):
@@ -81,7 +88,6 @@ class JsonReader(BaseMeta):
         return self.json.data(_)
 
 
-### TODO: xl reader
 
 class Maker:
     # dispatch does not work with beartype_this_package 
