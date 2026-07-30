@@ -4,57 +4,57 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rdf:Statement ;
-    rdf:object "Doe" ;
-    rdf:predicate ns1:LastName ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
-    ns2:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "john.doe@example.com" ;
-    rdf:predicate ns1:Email ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
-    ns2:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "John" ;
-    rdf:predicate ns1:FirstName ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
+    rdf:object _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N94e7d9c3cd4a40498cd53d39d43a3eae ;
     ns2:name "test" .
 
 [] a rdf:Statement ;
     rdf:object "2026-01-15" ;
     rdf:predicate ns1:SignUpDate ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
     ns2:name "test" .
 
 [] a rdf:Statement ;
-    rdf:object _:N9891a05ae38843b2bf598760adb42929 ;
-    rdf:predicate rdf:_0 ;
-    rdf:subject _:Ne78b3f25ca584ca2a578cf5257bd987c ;
-    ns2:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object rdf:Seq ;
-    rdf:predicate rdf:type ;
-    rdf:subject _:Ne78b3f25ca584ca2a578cf5257bd987c ;
+    rdf:object "Doe" ;
+    rdf:predicate ns1:LastName ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
     ns2:name "test" .
 
 [] a rdf:Statement ;
     rdf:object "555-0199" ;
     rdf:predicate ns1:PhoneNumber ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
+    ns2:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "John" ;
+    rdf:predicate ns1:FirstName ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
+    ns2:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "john.doe@example.com" ;
+    rdf:predicate ns1:Email ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
+    ns2:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N94e7d9c3cd4a40498cd53d39d43a3eae ;
     ns2:name "test" .
 
 [] a rdf:Statement ;
     rdf:object 1001 ;
     rdf:predicate ns1:CustomerID ;
-    rdf:subject _:N9891a05ae38843b2bf598760adb42929 ;
+    rdf:subject _:N2c0c821c7a96421ab90a4aceb6269eb2 ;
     ns2:name "test" .
 
-_:Ne78b3f25ca584ca2a578cf5257bd987c a rdf:Seq ;
-    rdf:_0 _:N9891a05ae38843b2bf598760adb42929 .
+_:N94e7d9c3cd4a40498cd53d39d43a3eae a rdf:Seq ;
+    rdf:_0 _:N2c0c821c7a96421ab90a4aceb6269eb2 .
 
-_:N9891a05ae38843b2bf598760adb42929 ns1:CustomerID 1001 ;
+_:N2c0c821c7a96421ab90a4aceb6269eb2 ns1:CustomerID 1001 ;
     ns1:Email "john.doe@example.com" ;
     ns1:FirstName "John" ;
     ns1:LastName "Doe" ;

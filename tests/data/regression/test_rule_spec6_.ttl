@@ -1,36 +1,36 @@
-@prefix ns1: <urn:rdf-rules:meta:> .
-@prefix ns2: <http://> .
+@prefix ns1: <http://> .
+@prefix ns2: <urn:rdf-rules:meta:> .
 @prefix ns3: <http://example.com/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:anon:hash:3370145932427979808> a rdf:Statement ;
     rdf:object "John Doe" ;
-    rdf:predicate ns2:xmlns.comname ;
+    rdf:predicate ns1:xmlns.comname ;
     rdf:subject ns3:Person2 ;
-    ns1:path "queries/test.rq" .
+    ns2:path "queries/test.rq" .
 
 <urn:anon:hash:3436295347057869710> a rdf:Statement ;
     rdf:object 30 ;
     rdf:predicate ns3:age ;
     rdf:subject ns3:Person1 ;
-    ns1:path "queries/test.rq" .
+    ns2:path "queries/test.rq" .
 
 <urn:anon:hash:8564826122995089439> a rdf:Statement ;
     rdf:object "John Doe" ;
-    rdf:predicate ns2:xmlns.comname ;
+    rdf:predicate ns1:xmlns.comname ;
     rdf:subject ns3:Person1 ;
-    ns1:path "queries/test.rq" .
+    ns2:path "queries/test.rq" .
 
 <urn:anon:hash:9025596319367000455> a rdf:Statement ;
     rdf:object 30 ;
     rdf:predicate ns3:age ;
     rdf:subject ns3:Person2 ;
-    ns1:path "queries/test.rq" .
+    ns2:path "queries/test.rq" .
 
 ns3:Person1 ns3:age 30 ;
-    ns2:xmlns.comname "John Doe" .
+    ns1:xmlns.comname "John Doe" .
 
 ns3:Person2 ns3:age 30 ;
-    ns2:xmlns.comname "John Doe" .
+    ns1:xmlns.comname "John Doe" .
 

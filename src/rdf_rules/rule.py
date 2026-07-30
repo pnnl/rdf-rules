@@ -10,6 +10,7 @@ class Maker:
     # but this class is a workaround
     def __call__(self, *p , **kw):
         return self.make(*p, **kw)
+
     
     import pandas as pd
     from .data import table as tr
@@ -44,11 +45,10 @@ class Maker:
     def make(self, query: cr.Str, **options) -> cr.ConstructQuery:
         return self.cr.ConstructQuery(query=query, **options)
 
-    # from . import ontology as orr
-    # def make()
-    # inference  = TopQuadrant('inference')
-    # validation = TopQuadrant('validation')
-
+    from . import ontology as orr
+    @dispatch
+    def make(self, ontology: orr.types.path.type, mode: orr.types.modes, **options) -> orr.TopQuadrant:
+        return self.orr.TopQuadrant(mode, ontology, **options)
 
 # put path in eech mod
 

@@ -1,0 +1,100 @@
+@prefix ex:   <http://example.com/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Ontology
+    a owl:Ontology .
+
+#################################################################
+# Ontology
+#################################################################
+
+ex:Person
+    a rdfs:Class .
+
+ex:Employee
+    a rdfs:Class ;
+    rdfs:subClassOf ex:Person .
+
+ex:Adult
+    a rdfs:Class ;
+    rdfs:subClassOf ex:Person .
+
+ex:name
+    a rdf:Property ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:age
+    a rdf:Property ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:employeeId
+    a rdf:Property ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+#################################################################
+# SHACL validation shapes
+#################################################################
+
+ex:PersonShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+
+    sh:property [
+        sh:path ex:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every person must have a string name." ;
+    ] ;
+
+    sh:property [
+        sh:path ex:age ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:message "Every person must have one non-negative integer age." ;
+    ] .
+
+ex:EmployeeShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Employee ;
+
+    sh:property [
+        sh:path ex:employeeId ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^EMP-[0-9]+$" ;
+        sh:message "Every employee must have an employeeId like EMP-123." ;
+    ] .
+
+#################################################################
+# SHACL-AF inference rule
+#
+# If a Person has age >= 18, infer that they are an ex:Adult.
+#################################################################
+
+ex:AdultInferenceShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX ex: <http://example.com/>
+
+            CONSTRUCT {
+                $this a ex:Adult .
+            }
+            WHERE {
+                $this ex:age ?age .
+                FILTER (?age >= 18)
+            }
+        """ ;
+    ] .

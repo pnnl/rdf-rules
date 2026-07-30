@@ -1,10 +1,48 @@
-# --- Prefixes to shorten URIs ---
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:  <http://w3.org> .
-@prefix foaf: <http://xmlns.com> .
-@prefix ex:   <http://example.org> .
-ex:alice123
-    rdf:type foaf:Person ;
-    foaf:name "Alice Smith"^^xsd:string ;
-    foaf:age 30 .
+@prefix ex:  <http://example.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Valid employee
+#
+# With SHACL-AF inference, this person should also be inferred
+# as ex:Adult because age is 34.
+#################################################################
+
+ex:alice
+    a ex:Employee ;
+    ex:name "Alice" ;
+    ex:age 34 ;
+    ex:employeeId "EMP-1001" .
+
+#################################################################
+# Invalid employee
+#
+# Missing ex:employeeId, so it violates ex:EmployeeShape.
+# It should still be inferred as ex:Adult because age is 29.
+#################################################################
+
+ex:bob
+    a ex:Employee ;
+    ex:name "Bob" ;
+    ex:age 29 .
+
+#################################################################
+# Invalid person
+#
+# Age is negative, so it violates ex:PersonShape.
+#################################################################
+
+ex:charlie
+    a ex:Person ;
+    ex:name "Charlie" ;
+    ex:age -2 .
+
+#################################################################
+# Invalid person
+#
+# Missing ex:name, so it violates ex:PersonShape.
+#################################################################
+
+ex:dana
+    a ex:Person ;
+    ex:age 16 .

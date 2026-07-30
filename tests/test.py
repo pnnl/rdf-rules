@@ -41,7 +41,7 @@ def serialize(ts):
         if not _.endswith(sep):
             _ = _ + sep
     g.parse(data=_, format='nt')
-    _ = g.serialize(format='turtle')
+    _ = g.serialize(format='turtle', )
     return _
 
 
@@ -51,6 +51,7 @@ from json import load as jload
 import rdf_rules.data.json as rj
 import rdf_rules.data.rdf as rr
 import rdf_rules.construct as cr
+import rdf_rules.ontology as orr
 specs = [
 # csv
 (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}), 
@@ -64,15 +65,34 @@ specs = [
 # construct
 (Path(query_dir  / 'test.rq'), {} ),
 (cr.Str(Path(query_dir  / 'test.rq').read_text()),  {}),
+# ontology
+((Path(data_dir  / 'test-ontology.ttl'), 'inference'), {} ),
+((Path(data_dir  / 'test-ontology.ttl'), 'validation'), {} )
 ]
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):
     p, kw = spec
-    data(rule.make(p, **kw), file_regression)
-def data(rule, file_regression):
-    _ = rule()
-    _ = rule()  # twice to make sure it returns data
+    if isinstance(p, tuple):
+        r = rule.make(*p, **kw)
+    else:
+        r = rule.make(p, **kw)
+
+    if isinstance(r, orr.TopQuadrant):
+        s = Store()
+        _ = rr.TTLReader(data_dir / 'test.ttl', additional_params={'path': 'fakedata.mapping.rq' } )
+        from pyoxigraph import Quad
+        s.bulk_extend(Quad(*t) for t in _())
+        _ = rr.TTLReader(data_dir / 'test-ontology.ttl', )
+        s.bulk_extend(Quad(*t) for t in _())
+        # from pyoxigraph import serialize as os, RdfFormat
+        # os(s, format=RdfFormat.TURTLE, output='_.ttl')
+    else:
+        s = Store()
+    data(r, file_regression, s=s)
+from pyoxigraph import Store
+def data(rule, file_regression, s=Store()):
+    _ = rule(s)
+    _ = rule(s)  # twice to make sure it returns data
     _ = serialize(_)
     assert(len(_)>5)
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
-

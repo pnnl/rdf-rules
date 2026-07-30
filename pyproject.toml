@@ -25,6 +25,7 @@ dev = [
     # testing
         'rdflib', 
         'pytest', 'pytest-regressions',
+    'pytqshacl[cli]',
     'marimo',
     ]
 

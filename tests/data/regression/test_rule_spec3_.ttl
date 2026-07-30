@@ -3,29 +3,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 [] a rdf:Statement ;
+    rdf:object "v" ;
+    rdf:predicate ns2:p ;
+    rdf:subject _:Nf27fb9d8cbb5411eba9b67c717ea969b ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
     rdf:object "id" ;
     rdf:predicate ns2:id ;
-    rdf:subject _:Nf779d87dc567417c9e629caca153929d ;
+    rdf:subject _:Nf27fb9d8cbb5411eba9b67c717ea969b ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "id" ;
+    rdf:predicate ns2:id ;
+    rdf:subject _:Nf27fb9d8cbb5411eba9b67c717ea969b ;
     ns1:name "test" .
 
 [] a rdf:Statement ;
     rdf:object "v" ;
     rdf:predicate ns2:p ;
-    rdf:subject _:Nf779d87dc567417c9e629caca153929d ;
+    rdf:subject _:Nf27fb9d8cbb5411eba9b67c717ea969b ;
     ns1:name "test" .
 
-[] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns2:id ;
-    rdf:subject _:Nf779d87dc567417c9e629caca153929d ;
-    ns1:additionalk "additionalv" .
-
-[] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns2:p ;
-    rdf:subject _:Nf779d87dc567417c9e629caca153929d ;
-    ns1:additionalk "additionalv" .
-
-_:Nf779d87dc567417c9e629caca153929d ns2:id "id" ;
+_:Nf27fb9d8cbb5411eba9b67c717ea969b ns2:id "id" ;
     ns2:p "v" .
 
