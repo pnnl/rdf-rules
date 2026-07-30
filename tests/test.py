@@ -1,8 +1,7 @@
 from pathlib import Path
-test_dir = Path(__file__).parent
+test_dir = Path(__file__).parent.relative_to(Path('.').absolute())
 data_dir = test_dir / 'data'
 import pytest
-
 regression = "regression"
 @pytest.fixture(scope="session")
 def lazy_datadir() -> Path:
@@ -63,8 +62,8 @@ def data(rule, file_regression):
 
 from json import load as jload
 @pytest.mark.parametrize('json',[
-            (lambda : jload(open(Path(data_dir / 'test.json'))), {'name': 'test'}),     # 0
-            (Path(data_dir / 'test.json'),  {}),                                        # 1
+            (lambda : jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'k':'v'} }),    # 0
+            (Path(data_dir / 'test.json'),  {}),                                                                        # 1
             ] )
 def test_json(json, file_regression):
     p, kw = json
