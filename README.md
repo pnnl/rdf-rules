@@ -15,9 +15,8 @@ Develop with `uv sync --all-packages --all-extras`.
 # Design Choices
 These are choices given the common use case of mapping data.
 They are somewhat firm.
-- Uses RDF1.2 to annotate tripes with metadata: `<<?s ?p ?o>> ?mp ?mo `
+- RDF1.2 annotates tripes with metadata: `<<?s ?p ?o>> ?mp ?mo `.
 where `?mp` and `?mo` [correspond to simple (key,value) pairs of metadata](./src/rdf_rules/base.py).
-- Mapping in the form of SPARQL constructs stored as files with `.rq` extension (can also be `.sparql`).
-- Multiple ontologies can be used separately
-- 
+- Mappings are in the form of SPARQL constructs stored as files with `.rq` extension (can also be `.sparql`).
+- Each (specified) ontology will be processed separately
 

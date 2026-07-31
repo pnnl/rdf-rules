@@ -19,15 +19,18 @@ common: type = {
 "uriReg": "http://www.w3.org/Addressing/schemes#",
 }
 
+
 def make(prefixes:type ={}, base='rdf-rules') -> type:
-    _ = {'meta': f'urn:{base}:meta:',
-         'data': f'urn:{base}:data:'
+    internal = {'meta':    f'urn:{base}:meta:',
+         'data':    f'urn:{base}:data:',
+         'anon.id': f'urn:{base}:anon:',
          }
-    _ = {**_, **common, **prefixes,} # right overrides
+    _ = {**internal, **common, **prefixes,} # right overrides
     # 'sub' namespace to distinguish identifiers
     prefixes = {}
     for p, n in _.copy().items():
-        prefixes[p+'.id'] = n+'id'
+        if not p.endswith('.id'):
+            prefixes[p+'.id'] = n+'id'
         prefixes[p] = n
     return prefixes
 

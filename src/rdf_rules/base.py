@@ -33,7 +33,7 @@ class Base(ABC):
         raise NotImplementedError
 
     def __repr__(self) -> str:
-        p = ','.join(f"{k}={v}" for k,v in self.params().items() )
+        p = ', '.join(f"{k}={v}" for k,v in self.params().items() )
         return f"{self.__class__.__name__}({p})"
 
 

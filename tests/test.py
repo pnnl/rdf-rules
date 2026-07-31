@@ -72,13 +72,11 @@ specs = [
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):
     p, kw = spec
-    if isinstance(p, tuple):
-        r = rule.make(*p, **kw)
-    else:
-        r = rule.make(p, **kw)
+    r = rule.make(p, **kw)
 
     if isinstance(r, orr.TopQuadrant):
         s = Store()
+        # using fakedata.mapping.rq to mark mapped data
         _ = rr.TTLReader(data_dir / 'test.ttl', additional_params={'path': 'fakedata.mapping.rq' } )
         from pyoxigraph import Quad
         s.bulk_extend(Quad(*t) for t in _())
@@ -94,5 +92,16 @@ def data(rule, file_regression, s=Store()):
     _ = rule(s)
     _ = rule(s)  # twice to make sure it returns data
     _ = serialize(_)
-    assert(len(_)>5)
+    assert(len(_)>5) # gimme /something/
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
+
+
+def test_engine():
+    from rdf_rules.engine import run
+    db = run(
+        data_rules=[  ],
+        ontologies=[data_dir / 'test-ontology.ttl'],
+        # using fakedata.mapping.rq to mark mapped data
+        rules=[(data_dir / 'test.ttl', {'additional_params': {'path': 'fakedata.mapping.rq' } } ) ],
+        )
+

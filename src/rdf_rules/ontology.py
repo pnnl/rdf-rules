@@ -1,6 +1,7 @@
 # no need to load in data
 from pathlib import Path
 
+
 class types:
     class path:
         from typing import Annotated

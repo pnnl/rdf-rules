@@ -50,6 +50,8 @@ class Maker:
     def make(self, ontology: orr.types.path.type, mode: orr.types.modes, **options) -> orr.TopQuadrant:
         return self.orr.TopQuadrant(mode, ontology, **options)
 
-# put path in eech mod
+    @dispatch
+    def make(self, p: tuple, **options):
+        return self(*p, **options)
 
 make = Maker()
