@@ -60,7 +60,7 @@ class TopQuadrant(BaseMeta):
         # ontology
         {{
             << ?s ?p ?o>> meta:path ?pth.
-            FILTER(STRENDS(lcase(STR(?pth)), "{self.ontology.as_posix()}"  ))
+            FILTER(lcase(STR(?pth)) = "{self.ontology.as_posix()}"  )
             }}
         # mapped data
         union
