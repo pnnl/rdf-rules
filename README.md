@@ -1,5 +1,5 @@
 A slightly optionionated common set of 'rules'
-for creating rdf data using 'rdf-engine':
+for creating rdf data using ['rdf-engine'](https://github.com/pnnl/rdf-engine):
 * Data Rules:
     - table loader
     - json loader
@@ -20,3 +20,6 @@ where `?mp` and `?mo` [correspond to simple (key,value) pairs of metadata](./src
 - Mappings are in the form of SPARQL constructs stored as files with `.mapping.rq` extension (can also be `.mapping.sparql`).
 - Each (specified) ontology will be processed separately
 
+# Quick Start
+
+Examine how rules are fed into an engine in the [tests](./tests/test.py).
