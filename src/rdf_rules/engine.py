@@ -2,7 +2,7 @@ from .ontology import types as otypes
 from . import prefixes as prefixesm
 from pyoxigraph import Store
 from typing import Any
-def mkrule(a: tuple | Any, included_data={'data', 'data-metaPO' }):
+def mkrule(a: tuple | Any, included_data={'data', 'data-metaPO' } ):
     from .rule import make as mk
     if isinstance(a, tuple):
         if len(a)>1:
@@ -31,6 +31,20 @@ def run(*, db = Store(),
          MAX_NCYCLES=10,
          log_data: bool=True, log_print: bool=True, log_debug: bool=False,
              ):
+    """
+    use_blank_nodes: If this is True
+        and you use generated blank nodes in the cycling 'rules' phase,
+        the process will not complete since they are different in each cycle.
+        This can be mitigated by setting this parameter to True
+        but at a high performance expense.
+    included_data: is the set of data each rule is allowed to pass:
+        'data': 'regular' triples: `?s ?p ?o`.
+        'data-metaPO': data triples plus metadata in the form `<<?s ?p ?o>> ?mp ?mo`.
+        Typical use assumes both.
+        The metadata is essential for inferencing and validation.
+        But, using metadata increases the size of the db significantly
+        incurring a performance cost.
+    """
     logging = {'log_data': log_data, 'log_print': log_print, 'log_debug': log_debug}
     # typical engine: a bit opinionated
     prefixesm.prefixes = prefixesm.make(prefixes)
