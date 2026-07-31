@@ -1,7 +1,3 @@
-from beartype.vale import Is
-from typing import Annotated
-from pathlib import Path
-from plum import dispatch
 
 #from collections.abc import Callable # can't use callable return sigs with dispatch
 class Maker:
@@ -11,6 +7,13 @@ class Maker:
     def __call__(self, *p , **kw):
         return self.make(*p, **kw)
 
+    from plum import dispatch
+    from rdf_engine.rules import Rule
+
+    @dispatch
+    def make(self, r: Rule) -> Rule:
+        """pass through (dispatch only checks if it's callable)"""
+        return r
     
     import pandas as pd
     from .data import table as tr
