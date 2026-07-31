@@ -2,7 +2,11 @@ from .ontology import types as otypes
 from . import prefixes as prefixesm
 from pyoxigraph import Store
 from typing import Any
-def mkrule(a: tuple | Any, included_data={'data', 'data-metaPO' } ):
+from collections.abc import Callable
+from rdf_engine.rules import Rule
+RuleData = set | frozenset | Callable[[Rule], set | frozenset ]
+
+def mkrule(a: tuple | Any, included_data: RuleData={'data', 'data-metaPO' }  ):
     from .rule import make as mk
     if isinstance(a, tuple):
         if len(a)>1:
@@ -16,7 +20,11 @@ def mkrule(a: tuple | Any, included_data={'data', 'data-metaPO' } ):
             _ = mk(*a)
     else:
         _ = mk(a)
-    _.data_and_meta_options = {'include': included_data }
+    if isinstance(included_data, (set, frozenset) ):
+        _.data_and_meta_options = {'include': included_data }
+    else:
+        assert(callable(included_data))
+        _.data_and_meta_options = {'include': included_data(_) }
     return _
 
 
@@ -27,7 +35,7 @@ def run(*, db = Store(),
          prefixes: prefixesm.type = {},
          use_blank_nodes: bool = False,
          infer=True, validate=True,
-         included_data = {'data', 'data-metaPO' },
+         included_data: RuleData = {'data', 'data-metaPO' },
          MAX_NCYCLES=10,
          log_data: bool=True, log_print: bool=True, log_debug: bool=False,
              ):
@@ -44,6 +52,8 @@ def run(*, db = Store(),
         The metadata is essential for inferencing and validation.
         But, using metadata increases the size of the db significantly
         incurring a performance cost.
+        For more control, this can be a function that takes the rule as an argument
+        and returns the set.
     """
     logging = {'log_data': log_data, 'log_print': log_print, 'log_debug': log_debug}
     # typical engine: a bit opinionated
