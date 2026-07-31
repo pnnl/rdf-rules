@@ -41,7 +41,11 @@ def ncommits(rev=rev):
     return int(c)
 
 
+def chk_ver(rev=rev):
+    from rdf_rules import __version__ as v
+    return str(v) == str(ver())
+
 
 if __name__ == '__main__':
     from fire import Fire
-    Fire({f.__name__:f for f in {build, }})
+    Fire({f.__name__:f for f in {build, chk_ver}})
