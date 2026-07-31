@@ -14,7 +14,7 @@ where {{
 # mapped data
 {{
     << ?s ?p ?o>> meta:path ?pth.
-    FILTER(STRENDS(lcase(STR(?pth)), ".rq") || STRENDS(lcase(STR(?pth)), ".sparql") )
+    FILTER(STRENDS(lcase(STR(?pth)), ".mapping.rq") || STRENDS(lcase(STR(?pth)), ".mapping.sparql") )
     }}
 # inferred data
 union

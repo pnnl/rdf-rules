@@ -17,6 +17,6 @@ These are choices given the common use case of mapping data.
 They are somewhat firm.
 - RDF1.2 annotates tripes with metadata: `<<?s ?p ?o>> ?mp ?mo `.
 where `?mp` and `?mo` [correspond to simple (key,value) pairs of metadata](./src/rdf_rules/base.py).
-- Mappings are in the form of SPARQL constructs stored as files with `.rq` extension (can also be `.sparql`).
+- Mappings are in the form of SPARQL constructs stored as files with `.mapping.rq` extension (can also be `.mapping.sparql`).
 - Each (specified) ontology will be processed separately
 
