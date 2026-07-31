@@ -1,5 +1,12 @@
 pkg = 'rdf_rules'
 
+from pathlib import Path
+root = Path(__file__).parent
+ppt = root / Path('pyproject.toml')
+assert(ppt.exists())
+
+src_pth = root / 'src' / pkg
+
 def get_rev():
     from subprocess import check_output as run
     return run('git rev-parse --abbrev-ref HEAD', text=True).strip()
@@ -9,10 +16,11 @@ rev = get_rev()
 def build(update=True, commit=False, ):
     def run(cmd, *p, **k):
         from subprocess import check_call as run
-        from pathlib import Path
-        return run(cmd, *p, cwd=Path(__file__).parent, **k)
+        return run(cmd, *p, cwd=root, **k)
     if update:
-        run(f'uv version {ver(increment=True)}', )
+        v = ver(increment=True)
+        open(src_pth / '__version__.py', 'w' ).write(f'version="{v}"')
+        run(f'uv version {v}', )
         # https://github.com/pre-commit/pre-commit/issues/747#issuecomment-386782080
         # will update uv.lock
     if commit:
