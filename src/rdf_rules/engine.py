@@ -33,14 +33,17 @@ def run(*, db = Store(),
          rules: list = [],
          ontologies: list[otypes.path.type] = [],
          prefixes: prefixesm.type = {},
-         use_blank_nodes: bool = False,
+         use_blank_nodes: bool = True,
          infer=True, validate=True,
          included_data: RuleData = {'data', 'data-metaPO' },
          MAX_NCYCLES=10,
          log_data: bool=True, log_print: bool=True, log_debug: bool=False,
-             ):
+             ) -> Store:
     """
-    use_blank_nodes: If this is True
+    The defaults are the most conservative and functional settings.
+    Relax them for more performance but consider the drawbacks.
+
+    use_blank_nodes: If this is False
         and you use generated blank nodes in the cycling 'rules' phase,
         the process will not complete since they are different in each cycle.
         This can be mitigated by setting this parameter to True
@@ -54,6 +57,7 @@ def run(*, db = Store(),
         incurring a performance cost.
         For more control, this can be a function that takes the rule as an argument
         and returns the set.
+    
     """
     logging = {'log_data': log_data, 'log_print': log_print, 'log_debug': log_debug}
     # typical engine: a bit opinionated
