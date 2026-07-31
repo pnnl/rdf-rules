@@ -99,9 +99,10 @@ def data(rule, file_regression, s=Store()):
 def test_engine():
     from rdf_rules.engine import run
     db = run(
-        data_rules=[  ],
+        data_rules=[ data_dir / 'test.csv' ],
         ontologies=[data_dir / 'test-ontology.ttl'],
         # using fakedata.mapping.rq to mark mapped data
         rules=[(data_dir / 'test.ttl', {'additional_params': {'path': 'fakedata.mapping.rq' } } ) ],
         )
-
+    assert(len(db) == 329) # good enough i guess b/c i tested rules separately
+    # so, no data regression
