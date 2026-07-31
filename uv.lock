@@ -804,7 +804,7 @@ wheels = [
 
 [[package]]
 name = "rdf-rules"
-version = "0.1.0"
+version = "0"
 source = { editable = "." }
 dependencies = [
     { name = "beartype" },
@@ -820,6 +820,7 @@ dependencies = [
 
 [package.optional-dependencies]
 dev = [
+    { name = "fire" },
     { name = "marimo" },
     { name = "pytest" },
     { name = "pytest-regressions" },
@@ -830,6 +831,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "beartype" },
+    { name = "fire", marker = "extra == 'dev'" },
     { name = "json2rdf" },
     { name = "marimo", marker = "extra == 'dev'" },
     { name = "openpyxl" },
