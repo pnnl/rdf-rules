@@ -29,8 +29,7 @@ dev = [
     'marimo',
     ]
 
-[project.scripts]
-rdf-rules = "rdf_rules:main"
+
 
 [build-system]
 requires = ["uv_build>=0.11.30,<0.12.0"]
