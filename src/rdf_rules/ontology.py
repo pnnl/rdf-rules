@@ -4,7 +4,8 @@ from pathlib import Path
 class types:
     class path:
         from typing import Annotated
-        type = Annotated[Path, lambda p: str(p).endswith('ontology.ttl')  ]
+        from beartype.vale import Is
+        type = Annotated[Path, Is[lambda p: str(p).endswith('ontology.ttl')]  ]
         # so you can have like s223-ontology.ttl if you want to distinguish
     from typing import Literal
     modes = Literal['inference'] | Literal['validation']
