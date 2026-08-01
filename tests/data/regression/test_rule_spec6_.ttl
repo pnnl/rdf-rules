@@ -1,36 +1,93 @@
-@prefix ns1: <http://> .
-@prefix ns2: <urn:rdf-rules:meta:> .
-@prefix ns3: <http://example.com/> .
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <http://example.com/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:anon:hash:3370145932427979808> a rdf:Statement ;
-    rdf:object "John Doe" ;
-    rdf:predicate ns1:xmlns.comname ;
-    rdf:subject ns3:Person2 ;
-    ns2:path "queries/test.rq" .
+<urn:anon:hash:1302470241318247677> a rdf:Statement ;
+    rdf:object 16 ;
+    rdf:predicate ns2:age ;
+    rdf:subject ns2:dana ;
+    ns1:name "test" .
 
-<urn:anon:hash:3436295347057869710> a rdf:Statement ;
-    rdf:object 30 ;
-    rdf:predicate ns3:age ;
-    rdf:subject ns3:Person1 ;
-    ns2:path "queries/test.rq" .
+<urn:anon:hash:236651521040495058> a rdf:Statement ;
+    rdf:object "Bob" ;
+    rdf:predicate ns2:name ;
+    rdf:subject ns2:bob ;
+    ns1:name "test" .
 
-<urn:anon:hash:8564826122995089439> a rdf:Statement ;
-    rdf:object "John Doe" ;
-    rdf:predicate ns1:xmlns.comname ;
-    rdf:subject ns3:Person1 ;
-    ns2:path "queries/test.rq" .
+<urn:anon:hash:2630100864008684480> a rdf:Statement ;
+    rdf:object -2 ;
+    rdf:predicate ns2:age ;
+    rdf:subject ns2:charlie ;
+    ns1:name "test" .
 
-<urn:anon:hash:9025596319367000455> a rdf:Statement ;
-    rdf:object 30 ;
-    rdf:predicate ns3:age ;
-    rdf:subject ns3:Person2 ;
-    ns2:path "queries/test.rq" .
+<urn:anon:hash:2702009752025809667> a rdf:Statement ;
+    rdf:object 29 ;
+    rdf:predicate ns2:age ;
+    rdf:subject ns2:bob ;
+    ns1:name "test" .
 
-ns3:Person1 ns3:age 30 ;
-    ns1:xmlns.comname "John Doe" .
+<urn:anon:hash:2863228465736342469> a rdf:Statement ;
+    rdf:object ns2:Employee ;
+    rdf:predicate rdf:type ;
+    rdf:subject ns2:alice ;
+    ns1:name "test" .
 
-ns3:Person2 ns3:age 30 ;
-    ns1:xmlns.comname "John Doe" .
+<urn:anon:hash:3331065605985365364> a rdf:Statement ;
+    rdf:object "Alice" ;
+    rdf:predicate ns2:name ;
+    rdf:subject ns2:alice ;
+    ns1:name "test" .
+
+<urn:anon:hash:4540108103729681830> a rdf:Statement ;
+    rdf:object ns2:Person ;
+    rdf:predicate rdf:type ;
+    rdf:subject ns2:dana ;
+    ns1:name "test" .
+
+<urn:anon:hash:6377448397998045870> a rdf:Statement ;
+    rdf:object "Charlie" ;
+    rdf:predicate ns2:name ;
+    rdf:subject ns2:charlie ;
+    ns1:name "test" .
+
+<urn:anon:hash:6430795426060795961> a rdf:Statement ;
+    rdf:object ns2:Person ;
+    rdf:predicate rdf:type ;
+    rdf:subject ns2:charlie ;
+    ns1:name "test" .
+
+<urn:anon:hash:6496336043259882215> a rdf:Statement ;
+    rdf:object 34 ;
+    rdf:predicate ns2:age ;
+    rdf:subject ns2:alice ;
+    ns1:name "test" .
+
+<urn:anon:hash:7629735438374981835> a rdf:Statement ;
+    rdf:object ns2:Employee ;
+    rdf:predicate rdf:type ;
+    rdf:subject ns2:bob ;
+    ns1:name "test" .
+
+<urn:anon:hash:8065949438408418462> a rdf:Statement ;
+    rdf:object "EMP-1001" ;
+    rdf:predicate ns2:employeeId ;
+    rdf:subject ns2:alice ;
+    ns1:name "test" .
+
+ns2:dana a ns2:Person ;
+    ns2:age 16 .
+
+ns2:bob a ns2:Employee ;
+    ns2:age 29 ;
+    ns2:name "Bob" .
+
+ns2:charlie a ns2:Person ;
+    ns2:age -2 ;
+    ns2:name "Charlie" .
+
+ns2:alice a ns2:Employee ;
+    ns2:age 34 ;
+    ns2:employeeId "EMP-1001" ;
+    ns2:name "Alice" .
 

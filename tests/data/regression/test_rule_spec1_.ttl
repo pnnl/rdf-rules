@@ -1,63 +1,113 @@
-@prefix ns1: <urn:rdf-rules:data:> .
-@prefix ns2: <urn:rdf-rules:meta:> .
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <urn:rdf-rules:data:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rdf:Statement ;
-    rdf:object "2026-01-15" ;
-    rdf:predicate ns1:SignUpDate ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
+    rdf:object "john.doe@example.com" ;
+    rdf:predicate ns2:Email ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object 1001 ;
+    rdf:predicate ns2:CustomerID ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N32bddc81f0914544a7e7e327604db65f ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:Ncd575df20e044f1db414aa981213ab69 ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0d953f6758814cd188971ee25a4e13e4 ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:Ncd575df20e044f1db414aa981213ab69 ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "Doe" ;
+    rdf:predicate ns2:LastName ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object " " ;
+    rdf:predicate ns2:Email ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "Anon" ;
+    rdf:predicate ns2:FirstName ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "555-0199" ;
+    rdf:predicate ns2:PhoneNumber ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:PhoneNumber ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
 
 [] a rdf:Statement ;
     rdf:object rdf:Seq ;
     rdf:predicate rdf:type ;
-    rdf:subject _:N2f2beaff5310495a9c3ba0304afb7412 ;
-    ns2:path "data/test.csv" .
-
-[] a rdf:Statement ;
-    rdf:object "555-0199" ;
-    rdf:predicate ns1:PhoneNumber ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
-
-[] a rdf:Statement ;
-    rdf:object "John" ;
-    rdf:predicate ns1:FirstName ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
-
-[] a rdf:Statement ;
-    rdf:object "john.doe@example.com" ;
-    rdf:predicate ns1:Email ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
-
-[] a rdf:Statement ;
-    rdf:object _:Nadab1779f2394550a6335033247954da ;
-    rdf:predicate rdf:_0 ;
-    rdf:subject _:N2f2beaff5310495a9c3ba0304afb7412 ;
-    ns2:path "data/test.csv" .
+    rdf:subject _:Ncd575df20e044f1db414aa981213ab69 ;
+    ns1:path "data/test.csv" .
 
 [] a rdf:Statement ;
     rdf:object 1001 ;
-    rdf:predicate ns1:CustomerID ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
+    rdf:predicate ns2:CustomerID ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
 
 [] a rdf:Statement ;
-    rdf:object "Doe" ;
-    rdf:predicate ns1:LastName ;
-    rdf:subject _:Nadab1779f2394550a6335033247954da ;
-    ns2:path "data/test.csv" .
+    rdf:object "John" ;
+    rdf:predicate ns2:FirstName ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
 
-_:N2f2beaff5310495a9c3ba0304afb7412 a rdf:Seq ;
-    rdf:_0 _:Nadab1779f2394550a6335033247954da .
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:SignUpDate ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
 
-_:Nadab1779f2394550a6335033247954da ns1:CustomerID 1001 ;
-    ns1:Email "john.doe@example.com" ;
-    ns1:FirstName "John" ;
-    ns1:LastName "Doe" ;
-    ns1:PhoneNumber "555-0199" ;
-    ns1:SignUpDate "2026-01-15" .
+[] a rdf:Statement ;
+    rdf:object "2026-01-15" ;
+    rdf:predicate ns2:SignUpDate ;
+    rdf:subject _:N32bddc81f0914544a7e7e327604db65f ;
+    ns1:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "Anon" ;
+    rdf:predicate ns2:LastName ;
+    rdf:subject _:N0d953f6758814cd188971ee25a4e13e4 ;
+    ns1:path "data/test.csv" .
+
+_:Ncd575df20e044f1db414aa981213ab69 a rdf:Seq ;
+    rdf:_0 _:N32bddc81f0914544a7e7e327604db65f ;
+    rdf:_1 _:N0d953f6758814cd188971ee25a4e13e4 .
+
+_:N0d953f6758814cd188971ee25a4e13e4 ns2:CustomerID 1001 ;
+    ns2:Email " " ;
+    ns2:FirstName "Anon" ;
+    ns2:LastName "Anon" ;
+    ns2:PhoneNumber "null" ;
+    ns2:SignUpDate "null" .
+
+_:N32bddc81f0914544a7e7e327604db65f ns2:CustomerID 1001 ;
+    ns2:Email "john.doe@example.com" ;
+    ns2:FirstName "John" ;
+    ns2:LastName "Doe" ;
+    ns2:PhoneNumber "555-0199" ;
+    ns2:SignUpDate "2026-01-15" .
 

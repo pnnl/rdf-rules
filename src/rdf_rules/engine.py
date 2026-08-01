@@ -6,7 +6,10 @@ from collections.abc import Callable
 from rdf_engine.rules import Rule
 RuleData = set | frozenset | Callable[[Rule], set | frozenset ]
 
-def mkrule(a: tuple | Any, included_data: RuleData={'data', 'data-metaPO' }  ):
+def mkrule(a: tuple | Any,
+        included_data: RuleData={'data', 'data-metaPO' } ,
+        null_values = {},
+          ):
     from .rule import make as mk
     if isinstance(a, tuple):
         if len(a)>1:
@@ -20,11 +23,17 @@ def mkrule(a: tuple | Any, included_data: RuleData={'data', 'data-metaPO' }  ):
             _ = mk(*a)
     else:
         _ = mk(a)
+
     if isinstance(included_data, (set, frozenset) ):
         _.data_and_meta_options = {'include': included_data }
     else:
         assert(callable(included_data))
         _.data_and_meta_options = {'include': included_data(_) }
+
+    from .data.base import BaseMeta as DataRule
+    if isinstance(_, DataRule):
+        _.null_values =  null_values
+        
     return _
 
 
@@ -36,6 +45,7 @@ def run(*, db = Store(),
          use_blank_nodes: bool = True,
          infer=True, validate=True,
          included_data: RuleData = {'data', 'data-metaPO' },
+         null_values = {}, remove_null=False,
          MAX_NCYCLES=10,
          log_data: bool=True, log_print: bool=True, log_debug: bool=False,
              ) -> Store:
@@ -58,6 +68,10 @@ def run(*, db = Store(),
         For more control, this can be a function that takes the rule as an argument
         and returns the set.
     
+    remove_null: If True, adds 'null' to null_values.
+        'null' is special as it is considered the canonical null value.
+        This is applied to `data_rules` (but not RDF readers).
+    
     """
     logging = {'log_data': log_data, 'log_print': log_print, 'log_debug': log_debug}
     # typical engine: a bit opinionated
@@ -66,11 +80,15 @@ def run(*, db = Store(),
         derand = 'canonicalize'
     else:
         derand = prefixesm.prefixes['anon.id']
+    
+    if remove_null:
+        from .data.base import null
+        null_values = frozenset(null_values) | {null}
 
     # DATA LOADING
     # load each ontology in data rule
-    _ = (list(mkrule(d, included_data=included_data) for d in data_rules)
-         +[mkrule(o, included_data=included_data) for o in ontologies])
+    _ = (list(mkrule(d, included_data=included_data, null_values=null_values) for d in data_rules)
+         +[mkrule(o, included_data=included_data,) for o in ontologies])
     from rdf_engine import Engine
     engine = Engine(db=db, rules=_, derand=False, MAX_NCYCLES=1, **logging)
     db = engine.run1()

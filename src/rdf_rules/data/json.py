@@ -9,7 +9,7 @@ class path:
     type = Annotated[Path, Is[lambda p: p.suffix in {'.json', '.geojson'}]]
 
 
-from ..base import BaseMeta
+from .base import BaseMeta
 class JSON(BaseMeta):
     from ..prefixes import prefixes
     def __init__(self, json: Callable[[], Str | dict] | Str | dict,
@@ -18,6 +18,7 @@ class JSON(BaseMeta):
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
             additional_params = {},
+            null_values = {},
                  ) -> None:
         self._json = json
         self.name = name if name else str(id(json))
@@ -25,6 +26,7 @@ class JSON(BaseMeta):
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
         self.additional_params = additional_params
+        self.null_values = null_values
 
 
     #from functools import cache
@@ -62,6 +64,7 @@ class JsonReader(BaseMeta):
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
             additional_params = {},
+            null_values = {},
                  ) -> None:
         self.path = path
         self.reading_args = reading_args
@@ -69,10 +72,12 @@ class JsonReader(BaseMeta):
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
         self.additional_params = additional_params
+        self.null_values = null_values
         from json import load
         self.json = JSON( lambda: load(open(path), **reading_args),
             data_prefix=data_prefix,
             data_id_prefix=data_id_prefix,
+            null_values = null_values,
             json2rdf_options = json2rdf_options)
 
     def params(self):

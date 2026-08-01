@@ -10,7 +10,7 @@ class paths:
 
 
 import pandas as pd
-from ..base import BaseMeta
+from .base import BaseMeta
 class Table(BaseMeta):
     from ..prefixes import prefixes
     def __init__(self, df: Callable[[], pd.DataFrame] | pd.DataFrame,
@@ -18,7 +18,8 @@ class Table(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
-            additional_params = {}
+            additional_params = {},
+            null_values = {},
                  ) -> None:
         self._df = df
         self.name = name if name else str(id(df))
@@ -26,6 +27,7 @@ class Table(BaseMeta):
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
         self.additional_params = additional_params
+        self.null_values = null_values
 
     #from functools import cache
     #@cache
@@ -65,7 +67,8 @@ class CSVReader(BaseMeta):
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
             json2rdf_options = {},
-            additional_params = {}
+            additional_params = {},
+            null_values = {},
                  ) -> None:
         self.path = path
         self.reading_args = reading_args
@@ -73,10 +76,12 @@ class CSVReader(BaseMeta):
         self.data_id_prefix = data_id_prefix
         self.json2rdf_options = json2rdf_options
         self.additional_params = additional_params
+        self.null_values = null_values
         self.table = Table( lambda: pd.read_csv(path, **reading_args) ,
             data_prefix=data_prefix,
             data_id_prefix=data_id_prefix,
             json2rdf_options = json2rdf_options,
+            null_values=null_values,
         )
 
     def params(self):

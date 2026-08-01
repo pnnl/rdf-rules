@@ -7,7 +7,7 @@ class paths:
         from beartype.vale import Is
         ttl = Annotated[Path, Is[lambda p: p.suffix == '.ttl']]
 
-from ..base import BaseMeta
+from .base import BaseMeta
 class TTL(BaseMeta):
     class type:
         class Str(str):...
@@ -19,6 +19,8 @@ class TTL(BaseMeta):
         self._ttl = ttl
         self.name = name if name else str(id(name))
         self.additional_params = additional_params
+        # dont need to handle nulls (philosophically)
+        #self.null_values = null_values
 
 
     #from functools import cache

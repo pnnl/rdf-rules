@@ -58,6 +58,7 @@ specs = [
 (Path(data_dir / 'test.csv'),  {}),
 # json
 (rj.Str(open(Path(data_dir / 'test.json')).read()), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }),
+(rj.Str(open(Path(data_dir / 'test.json')).read()), {'name': 'test',  'null_values': {'null'} }),
 (jload(open(Path(data_dir / 'test.json'))), {'name': 'test', 'additional_params': {'additionalk':'additionalv'} }), 
 # rdf
 (Path(data_dir / 'test.json'),  {'additional_params': {'additionalk':'additionalv'}}),
@@ -96,13 +97,22 @@ def data(rule, file_regression, s=Store()):
     file_regression.check(_, check_fn=check_fn, extension='.ttl')
 
 
-def test_engine():
+@pytest.mark.parametrize('remove_null', [True, False])
+def test_engine(remove_null):
     from rdf_rules.engine import run
     db = run(
         data_rules=[ data_dir / 'test.csv' ],
         ontologies=[data_dir / 'test-ontology.ttl'],
+        remove_null=remove_null,
         # using fakedata.mapping.rq to mark mapped data
         rules=[(data_dir / 'test.ttl', {'additional_params': {'path': 'fakedata.mapping.rq' } } ) ],
         )
-    assert(len(db) == 329) # good enough i guess b/c i tested rules separately
+
+    wonulls, nulls = 346, 756
+    assert(wonulls < nulls)
+    if remove_null == True:
+        assert(len(db) == wonulls) # good enough i guess b/c i tested rules separately
+    else:
+        assert(len(db) == nulls)
+
     # so, no data regression

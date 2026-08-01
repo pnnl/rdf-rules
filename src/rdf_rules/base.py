@@ -2,6 +2,7 @@ from pyoxigraph import Store, Quad, Triple
 from typing import Any
 from collections.abc import Callable, Iterable
 Triples = Iterable[Triple]
+Quads = Iterable[Quad]
 #from rdf_engine.rules import Rule #how to use the type sig?
 
 from abc import ABC, abstractmethod
@@ -10,7 +11,7 @@ class Base(ABC):
     """essential functionality for subclassing"""
     def __call__(self, db: Store = Store(),
           
-                  ) -> Iterable[Quad]:
+                  ) -> Quads:
         data = self.data(db)
         meta = self.meta
         args = self.data_and_meta_options
