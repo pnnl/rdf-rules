@@ -9,6 +9,8 @@ These rules come together in the 'engine'.
 # Development
 Develop with `uv sync --all-packages --all-extras`.
 
+Run `python tasks.py stamp_ver` before pypi publishing.
+
 # Design Choices
 These are choices given the common use case of mapping data to an ontology.
 They are somewhat firm.

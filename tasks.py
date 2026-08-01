@@ -12,20 +12,24 @@ def get_rev():
     return run('git rev-parse --abbrev-ref HEAD', text=True).strip()
 rev = get_rev()
 
+def run(cmd, *p, **k):
+    from subprocess import check_call as run
+    return run(cmd, *p, cwd=root, **k)
 
-def build(update=True, commit=False, ):
-    def run(cmd, *p, **k):
-        from subprocess import check_call as run
-        return run(cmd, *p, cwd=root, **k)
-    if update:
-        v = ver(increment=True)
-        open(src_pth / '__version__.py', 'w' ).write(f'version="{v}"')
-        run(f'uv version {v}', )
-        # https://github.com/pre-commit/pre-commit/issues/747#issuecomment-386782080
-        # will update uv.lock
+def build(increment_ver=True, commit=False, ):
+    if increment_ver:
+        stamp_ver(increment_ver)
     if commit:
         run('git add -u', )
     run('uv build')
+
+
+def stamp_ver(increment=True):
+    v = ver(increment=increment)
+    open(src_pth / '__version__.py', 'w' ).write(f'version="{v}"')
+    run(f'uv version {v}', )
+    # https://github.com/pre-commit/pre-commit/issues/747#issuecomment-386782080
+    # will update uv.lock
 
 
 def ver(*,increment=False):
@@ -48,4 +52,4 @@ def chk_ver(rev=rev):
 
 if __name__ == '__main__':
     from fire import Fire
-    Fire({f.__name__:f for f in {build, chk_ver}})
+    Fire({f.__name__:f for f in {build, chk_ver, stamp_ver}})
