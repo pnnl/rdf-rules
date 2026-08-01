@@ -37,4 +37,15 @@ where {{
 """
 validation = align(_)
 
+
+from pyoxigraph import Store
+def query(db: Store, query: str):
+    """small convenience"""
+    if query in locals():
+        q = locals()[query]
+    else:
+        q = query
+    _ = db.query(q)
+    return _
+
 del _
