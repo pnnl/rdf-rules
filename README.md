@@ -20,7 +20,7 @@ where `?mp` and `?mo` [correspond to simple (key,value) pairs of metadata](./src
 stored as files with a `.mapping.rq` extension (can also be `.mapping.sparql`).
 - Each (specified) ontology will be processed separately.
 
-# Quick Start
+# Usage
 
 Examine how rules are fed into an engine in the [tests](./tests/test.py).
 The common workflow is:
