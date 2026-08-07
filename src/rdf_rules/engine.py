@@ -8,7 +8,7 @@ RuleData = set | frozenset | Callable[[Rule], set | frozenset ]
 
 def mkrule(a: tuple | Any,
         included_data: RuleData={'data', 'data-metaPO' } ,
-        null_values = {},
+        null_values = {'null'},
           ):
     from .rule import make as mk
     if isinstance(a, tuple):
@@ -45,7 +45,7 @@ def run(*, db = Store(),
          use_blank_nodes: bool = True,
          infer=True, validate=True,
          included_data: RuleData = {'data', 'data-metaPO' },
-         null_values = {}, remove_null=False,
+         null_values = {}, remove_null=True,
          MAX_NCYCLES=10,
          log_data: bool=True, log_print: bool=True, log_debug: bool=False,
              ) -> Store:

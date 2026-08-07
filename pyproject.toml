@@ -1,6 +1,6 @@
 [project]
 name = "rdf-rules"
-version = "2026.8.64"
+version = "2026.8.65"
 description = "Create RDF data "
 readme = "README.md"
 authors = [
