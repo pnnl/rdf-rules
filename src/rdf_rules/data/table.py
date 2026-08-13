@@ -7,6 +7,7 @@ class paths:
         from typing import Annotated
         from beartype.vale import Is
         csv = Annotated[Path, Is[lambda p: p.suffix == '.csv']]
+        xl = Annotated[Path, Is[lambda p: p.suffix == '.xlsx']]
 
 
 import pandas as pd
@@ -95,6 +96,42 @@ class CSVReader(BaseMeta):
         _ = db
         return self.table.data(_)
 
-### TODO: xl reader
 
+class ExcelReader(BaseMeta):
+    from ..prefixes import prefixes
+    def __init__(self, path: paths.type.xl,
+            reading_args: dict = {},
+            data_prefix=prefixes['data'],
+            data_id_prefix=prefixes['data.id'],
+            json2rdf_options = {},
+            additional_params = {},
+            null_values = {},
+                 ) -> None:
+        """
+        reading_args are used in additional_params to identify data
+        """
+        self.path = path
+        self.reading_args = reading_args
+        self.data_prefix = data_prefix
+        self.data_id_prefix = data_id_prefix
+        self.json2rdf_options = json2rdf_options
+        self.additional_params = {**additional_params, **reading_args}
+        self.null_values = null_values
+        self.table = Table( lambda: pd.read_excel(path, **reading_args) ,
+            data_prefix=data_prefix,
+            data_id_prefix=data_id_prefix,
+            json2rdf_options = json2rdf_options,
+            null_values=null_values,
+        )
+
+    def params(self):
+        _ = {
+            'path': self.path.as_posix(),
+            **self.additional_params
+              } 
+        return _
+
+    def data(self, db):
+        _ = db
+        return self.table.data(_)
 

@@ -1,44 +1,21 @@
-@prefix ns1: <urn:rdf-rules:data:> .
-@prefix ns2: <urn:rdf-rules:meta:> .
+@prefix ns1: <urn:rdf-rules:meta:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-[] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:name "test" .
+<urn:anon:hash:5298541013713277965> a rdf:Statement ;
+    rdf:object <http://example.com/Adult> ;
+    rdf:predicate rdf:type ;
+    rdf:subject <http://example.com/bob> ;
+    ns1:ontology "data/test-ontology.ttl" ;
+    ns1:tqmode "inference" .
 
-[] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns1:p ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:name "test" .
+<urn:anon:hash:6517825678639597667> a rdf:Statement ;
+    rdf:object <http://example.com/Adult> ;
+    rdf:predicate rdf:type ;
+    rdf:subject <http://example.com/alice> ;
+    ns1:ontology "data/test-ontology.ttl" ;
+    ns1:tqmode "inference" .
 
-[] a rdf:Statement ;
-    rdf:object "null" ;
-    rdf:predicate ns1:null ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:name "test" .
+<http://example.com/alice> a <http://example.com/Adult> .
 
-[] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns1:p ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:additionalk "additionalv" .
-
-[] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:additionalk "additionalv" .
-
-[] a rdf:Statement ;
-    rdf:object "null" ;
-    rdf:predicate ns1:null ;
-    rdf:subject _:N10c4b3c722a545048c370f5b94d1e93b ;
-    ns2:additionalk "additionalv" .
-
-_:N10c4b3c722a545048c370f5b94d1e93b ns1:id "id" ;
-    ns1:null "null" ;
-    ns1:p "v" .
+<http://example.com/bob> a <http://example.com/Adult> .
 

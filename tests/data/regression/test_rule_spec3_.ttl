@@ -1,21 +1,360 @@
 @prefix ns1: <urn:rdf-rules:meta:> .
-@prefix ns2: <urn:rdf-rules:data:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-[] ns1:name "test" .
-
-[] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns2:p ;
-    rdf:subject _:Nf9b27290f9fe4589b51caab1a585b372 ;
-    ns1:name "test" .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns2:id ;
-    rdf:subject _:Nf9b27290f9fe4589b51caab1a585b372 ;
-    ns1:name "test" .
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
 
-_:Nf9b27290f9fe4589b51caab1a585b372 ns2:id "id" ;
-    ns2:p "v" .
+[] a rdf:Statement ;
+    rdf:object "Every employee must have an employeeId like EMP-123." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinInclusiveConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object "Every person must have one non-negative integer age." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinCountConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object "Every employee must have an employeeId like EMP-123." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object -2 ;
+    rdf:predicate sh:value ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nf8b8153bcfa1499e9e854260218e34cf ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nc97566cad5aa4088bebbffc1246bb002 ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object "Every person must have one non-negative integer age." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/charlie> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/employeeId> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/bob> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nf8b8153bcfa1499e9e854260218e34cf ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object _:Na58186c316234597a1f4eeb2a3834aa5 ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/name> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object "Every person must have a string name." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0dfd27aff4cd426d8acee1d822560dac ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/charlie> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationReport ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinInclusiveConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:Na58186c316234597a1f4eeb2a3834aa5 ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/name> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/employeeId> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinCountConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object -2 ;
+    rdf:predicate sh:value ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationResult ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/bob> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object false ;
+    rdf:predicate sh:conforms ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0dfd27aff4cd426d8acee1d822560dac ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/dana> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/dana> ;
+    rdf:predicate sh:focusNode ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinCountConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object false ;
+    rdf:predicate sh:conforms ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object "Every person must have a string name." ;
+    rdf:predicate sh:resultMessage ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:MinCountConstraintComponent ;
+    rdf:predicate sh:sourceConstraintComponent ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:Violation ;
+    rdf:predicate sh:resultSeverity ;
+    rdf:subject _:Nca7ee1e8ba0742a7b2ed7f6de573589b ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object sh:ValidationReport ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/age> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object <http://example.com/age> ;
+    rdf:predicate sh:resultPath ;
+    rdf:subject _:N0dfd27aff4cd426d8acee1d822560dac ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nc97566cad5aa4088bebbffc1246bb002 ;
+    rdf:predicate sh:sourceShape ;
+    rdf:subject _:N81b799cbefe54370852aaadd9121a878 ;
+    ns1:tqmode "validation" .
+
+[] a rdf:Statement ;
+    rdf:object _:N81b799cbefe54370852aaadd9121a878 ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:ontology "data/test-ontology.ttl" .
+
+[] a rdf:Statement ;
+    rdf:object _:N81b799cbefe54370852aaadd9121a878 ;
+    rdf:predicate sh:result ;
+    rdf:subject _:N1ed11f7be4dc4d38a3392bb317d21348 ;
+    ns1:tqmode "validation" .
+
+_:N1ed11f7be4dc4d38a3392bb317d21348 a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result _:N0dfd27aff4cd426d8acee1d822560dac,
+        _:N81b799cbefe54370852aaadd9121a878,
+        _:Nca7ee1e8ba0742a7b2ed7f6de573589b .
+
+_:N81b799cbefe54370852aaadd9121a878 a sh:ValidationResult ;
+    sh:focusNode <http://example.com/dana> ;
+    sh:resultMessage "Every person must have a string name." ;
+    sh:resultPath <http://example.com/name> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+    sh:sourceShape _:Nc97566cad5aa4088bebbffc1246bb002 .
+
+_:Nca7ee1e8ba0742a7b2ed7f6de573589b a sh:ValidationResult ;
+    sh:focusNode <http://example.com/bob> ;
+    sh:resultMessage "Every employee must have an employeeId like EMP-123." ;
+    sh:resultPath <http://example.com/employeeId> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+    sh:sourceShape _:Na58186c316234597a1f4eeb2a3834aa5 .
+
+_:N0dfd27aff4cd426d8acee1d822560dac a sh:ValidationResult ;
+    sh:focusNode <http://example.com/charlie> ;
+    sh:resultMessage "Every person must have one non-negative integer age." ;
+    sh:resultPath <http://example.com/age> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+    sh:sourceShape _:Nf8b8153bcfa1499e9e854260218e34cf ;
+    sh:value -2 .
 

@@ -1,4 +1,5 @@
 !test*.csv
 !test*.ttl
 !test*.json
+!test*.xlsx
 *.obtained.*

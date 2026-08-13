@@ -1,44 +1,113 @@
 @prefix ns1: <urn:rdf-rules:data:> .
 @prefix ns2: <urn:rdf-rules:meta:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a rdf:Statement ;
+    rdf:object "Doe" ;
+    rdf:predicate ns1:LastName ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0c7834d7c14440d6bf629a8265dc318f ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N20edb7ee95084b57b57c017bc9035a85 ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "Anon" ;
+    rdf:predicate ns1:LastName ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0962223f371343b589dec1dbc0f443ae ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N20edb7ee95084b57b57c017bc9035a85 ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "2026-01-15" ;
+    rdf:predicate ns1:SignUpDate ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object " " ;
+    rdf:predicate ns1:Email ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "555-0199" ;
+    rdf:predicate ns1:PhoneNumber ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object 1001 ;
+    rdf:predicate ns1:CustomerID ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
 
 [] a rdf:Statement ;
     rdf:object "null" ;
-    rdf:predicate ns1:null ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:path "data/test.json" .
+    rdf:predicate ns1:SignUpDate ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
 
 [] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:path "data/test.json" .
+    rdf:object "John" ;
+    rdf:predicate ns1:FirstName ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
 
 [] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns1:p ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:path "data/test.json" .
+    rdf:object "john.doe@example.com" ;
+    rdf:predicate ns1:Email ;
+    rdf:subject _:N0962223f371343b589dec1dbc0f443ae ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object "Anon" ;
+    rdf:predicate ns1:FirstName ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N20edb7ee95084b57b57c017bc9035a85 ;
+    ns2:path "data/test.csv" .
+
+[] a rdf:Statement ;
+    rdf:object 1001 ;
+    rdf:predicate ns1:CustomerID ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
 
 [] a rdf:Statement ;
     rdf:object "null" ;
-    rdf:predicate ns1:null ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:additionalk "additionalv" .
+    rdf:predicate ns1:PhoneNumber ;
+    rdf:subject _:N0c7834d7c14440d6bf629a8265dc318f ;
+    ns2:path "data/test.csv" .
 
-[] a rdf:Statement ;
-    rdf:object "v" ;
-    rdf:predicate ns1:p ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:additionalk "additionalv" .
+_:N20edb7ee95084b57b57c017bc9035a85 a rdf:Seq ;
+    rdf:_0 _:N0962223f371343b589dec1dbc0f443ae ;
+    rdf:_1 _:N0c7834d7c14440d6bf629a8265dc318f .
 
-[] a rdf:Statement ;
-    rdf:object "id" ;
-    rdf:predicate ns1:id ;
-    rdf:subject _:N52eeae9efe834d7d9495d5dab3bc308b ;
-    ns2:additionalk "additionalv" .
+_:N0962223f371343b589dec1dbc0f443ae ns1:CustomerID 1001 ;
+    ns1:Email "john.doe@example.com" ;
+    ns1:FirstName "John" ;
+    ns1:LastName "Doe" ;
+    ns1:PhoneNumber "555-0199" ;
+    ns1:SignUpDate "2026-01-15" .
 
-_:N52eeae9efe834d7d9495d5dab3bc308b ns1:id "id" ;
-    ns1:null "null" ;
-    ns1:p "v" .
+_:N0c7834d7c14440d6bf629a8265dc318f ns1:CustomerID 1001 ;
+    ns1:Email " " ;
+    ns1:FirstName "Anon" ;
+    ns1:LastName "Anon" ;
+    ns1:PhoneNumber "null" ;
+    ns1:SignUpDate "null" .
 

@@ -1,0 +1,412 @@
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix ns2: <urn:rdf-rules:data:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object 1.2 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object _:N476cec5d161343dc95cf49add5b5247e ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object _:N476cec5d161343dc95cf49add5b5247e ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 5.6 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 1.2 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object _:N476cec5d161343dc95cf49add5b5247e ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 3.4 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object 5.6 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 3.4 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 5.6 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object 5.6 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N476cec5d161343dc95cf49add5b5247e ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object 1.2 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 1.2 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object 3.4 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object 3.4 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 5.6 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:additionalk "additionalv" .
+
+[] a rdf:Statement ;
+    rdf:object "null" ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:sheet_name "Sheet0" .
+
+[] a rdf:Statement ;
+    rdf:object 3.4 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N0f7032f60e1041e9a0680541742f06ee ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns2:col21 ;
+    rdf:subject _:N476cec5d161343dc95cf49add5b5247e ;
+    ns1:usecols "F:H" .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate ns2:col23 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:path "data/test.xlsx" .
+
+[] a rdf:Statement ;
+    rdf:object 1.2 ;
+    rdf:predicate ns2:col22 ;
+    rdf:subject _:N6996215098ed4114b5069ebf5f103900 ;
+    ns1:skiprows 3 .
+
+[] a rdf:Statement ;
+    rdf:object _:N476cec5d161343dc95cf49add5b5247e ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N4933759093f74f47a5155ee9fe61dc9b ;
+    ns1:additionalk "additionalv" .
+
+_:N4933759093f74f47a5155ee9fe61dc9b a rdf:Seq ;
+    rdf:_0 _:N6996215098ed4114b5069ebf5f103900 ;
+    rdf:_1 _:N0f7032f60e1041e9a0680541742f06ee ;
+    rdf:_2 _:N476cec5d161343dc95cf49add5b5247e .
+
+_:N0f7032f60e1041e9a0680541742f06ee ns2:col21 2 ;
+    ns2:col22 3.4 ;
+    ns2:col23 "b" .
+
+_:N476cec5d161343dc95cf49add5b5247e ns2:col21 3 ;
+    ns2:col22 5.6 ;
+    ns2:col23 "c" .
+
+_:N6996215098ed4114b5069ebf5f103900 ns2:col21 "null" ;
+    ns2:col22 1.2 ;
+    ns2:col23 "a" .
+

@@ -53,6 +53,12 @@ import rdf_rules.data.rdf as rr
 import rdf_rules.construct as cr
 import rdf_rules.ontology as orr
 specs = [
+# construct
+(Path(query_dir  / 'test.rq'), {} ),
+(cr.Str(Path(query_dir  / 'test.rq').read_text()),  {}),
+# ontology
+((Path(data_dir  / 'test-ontology.ttl'), 'inference'), {} ),
+((Path(data_dir  / 'test-ontology.ttl'), 'validation'), {} ),
 # csv
 (pd.read_csv(Path(data_dir / 'test.csv')), {'name': 'test'}), 
 (Path(data_dir / 'test.csv'),  {}),
@@ -63,12 +69,9 @@ specs = [
 # rdf
 (Path(data_dir / 'test.json'),  {'additional_params': {'additionalk':'additionalv'}}),
 ( rr.TTL.type.Str(Path(data_dir / 'test.ttl').read_text()),  {'name': 'test' }),
-# construct
-(Path(query_dir  / 'test.rq'), {} ),
-(cr.Str(Path(query_dir  / 'test.rq').read_text()),  {}),
-# ontology
-((Path(data_dir  / 'test-ontology.ttl'), 'inference'), {} ),
-((Path(data_dir  / 'test-ontology.ttl'), 'validation'), {} )
+# xl
+(Path(data_dir / 'test.xlsx'), {'additional_params': {'additionalk':'additionalv'},
+    'reading_args': {'sheet_name': 'Sheet0', 'skiprows': 3, 'usecols': 'F:H',  } }),
 ]
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):
