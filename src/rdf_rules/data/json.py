@@ -12,7 +12,7 @@ class path:
 from .base import BaseMeta
 class JSON(BaseMeta):
     from ..prefixes import prefixes
-    def __init__(self, json: Callable[[], Str | dict] | Str | dict,
+    def __init__(self, json: Callable[[], Str | dict] | Str | dict | list,
             name: str | None = None, *,
             data_prefix=prefixes['data'],
             data_id_prefix=prefixes['data.id'],
@@ -31,7 +31,7 @@ class JSON(BaseMeta):
 
     #from functools import cache
     #@cache
-    def json(self) -> Str | dict:
+    def json(self) -> Str | dict | list:
         if callable(self._json):
             _ = self._json()
         else:

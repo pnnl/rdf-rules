@@ -32,7 +32,7 @@ class Maker:
     def make(self, path: jr.path.type, **options) -> jr.JsonReader:
         return self.jr.JsonReader(path, **options)
     @dispatch
-    def make(self, json: dict | jr.Str, **options) -> jr.JSON:
+    def make(self, json: list | dict | jr.Str, **options) -> jr.JSON:
         return self.jr.JSON(json, **options)
 
     from .data import rdf as rr

@@ -1,0 +1,54 @@
+@prefix ns1: <urn:rdf-rules:meta:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a rdf:Statement ;
+    rdf:object "b" ;
+    rdf:predicate rdf:_4 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "a" ;
+    rdf:predicate rdf:_3 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object 1 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object "c" ;
+    rdf:predicate rdf:_5 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:N819b50d4869748a282416909ad0e3699 ;
+    ns1:name "test" .
+
+_:N819b50d4869748a282416909ad0e3699 a rdf:Seq ;
+    rdf:_0 1 ;
+    rdf:_1 2 ;
+    rdf:_2 3 ;
+    rdf:_3 "a" ;
+    rdf:_4 "b" ;
+    rdf:_5 "c" .
+

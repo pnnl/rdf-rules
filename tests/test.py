@@ -72,6 +72,7 @@ specs = [
 # xl
 (Path(data_dir / 'test.xlsx'), {'additional_params': {'additionalk':'additionalv'},
     'reading_args': {'sheet_name': 'Sheet0', 'skiprows': 3, 'usecols': 'F:H',  } }),
+([1,2,3,'a','b','c'], {'name': 'test'}),
 ]
 @pytest.mark.parametrize('spec',specs)
 def test_rule(spec, file_regression):
