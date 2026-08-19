@@ -47,7 +47,7 @@ def run(*, db = Store(),
          included_data: RuleData = {'data', 'data-metaPO' },
          null_values = {}, remove_null=True,
          MAX_NCYCLES=10,
-         log_data: bool=True, log_print: bool=True, log_debug: bool=False,
+         log_print: bool=True,
              ) -> Store:
     """
     The defaults are the most conservative and functional settings.
@@ -73,7 +73,7 @@ def run(*, db = Store(),
         This is applied to `data_rules` (but not RDF readers).
     
     """
-    logging = {'log_data': log_data, 'log_print': log_print, 'log_debug': log_debug}
+    logging = {'log_print': log_print}
     # typical engine: a bit opinionated
     prefixesm.prefixes = prefixesm.make(prefixes)
     if use_blank_nodes:
