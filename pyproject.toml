@@ -10,6 +10,7 @@ requires-python = ">=3.13"
 dependencies = [
     'uritools',
     'rdf-engine',
+    'loguru',
      'plum', 'beartype',
     # tables
     'pandas', 'json2rdf', 'openpyxl',

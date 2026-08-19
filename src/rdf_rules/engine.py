@@ -74,6 +74,13 @@ def run(*, db = Store(),
     
     """
     logging = {'log_print': log_print}
+
+    def log(msg):
+        if log_print:
+            sep = '='*5
+            from loguru import logger
+            logger.info(sep+' '+msg)
+
     # typical engine: a bit opinionated
     prefixesm.prefixes = prefixesm.make(prefixes)
     if use_blank_nodes:
@@ -91,18 +98,21 @@ def run(*, db = Store(),
          +[mkrule(o, included_data=included_data,) for o in ontologies])
     from rdf_engine import Engine
     engine = Engine(db=db, rules=_, derand=False, MAX_NCYCLES=1, **logging)
+    log('LOADING DATA')
     db = engine.run1()
 
     # RULES CYCLING
     _ = [mkrule((o, 'inference'), included_data=included_data) for o in ontologies] if infer else []
     _ = list(mkrule(r, included_data=included_data) for r in rules)+_
     engine = Engine(db=db,  rules=_, derand=derand, MAX_NCYCLES=MAX_NCYCLES, **logging)
+    log('APPLYING RULES AND MAYBE INFERENCING')
     db = engine.run()
 
     # VALIDATION
     if validate:
         _ = [mkrule((o, 'validation'), included_data=included_data) for o in ontologies]
         engine = Engine(db=db,  rules=_, derand=False, MAX_NCYCLES=1, **logging)
+        log('VALIDATING')
         db = engine.run1()
     
     return db

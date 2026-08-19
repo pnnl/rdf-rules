@@ -790,16 +790,16 @@ wheels = [
 
 [[package]]
 name = "rdf-engine"
-version = "234"
+version = "236"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "loguru" },
     { name = "pyoxigraph" },
     { name = "rdflib" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3c/0a/1c253d62c362417ee27246242622b5240154c7fa302659d449596be2cb1c/rdf_engine-234.tar.gz", hash = "sha256:39b7392ba9bc01c85287ec53fb12382bc4d2441c3c720e853db035c567ba4df9", size = 8770, upload-time = "2026-05-21T23:13:43.599Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/49/b9/1bcd38318ce549c4dae6a54b1fd170abd38b3d6d5f8fbefcb775e1dbba1f/rdf_engine-236.tar.gz", hash = "sha256:e23030ce5c82e5c7bdab9ba1d78b2635711cbdcee438c048c101fd4fe7507fac", size = 8764, upload-time = "2026-08-19T16:41:34.679Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c5/2a/90a9ab1ccffa40cbddb8b13eb16a9c53264139db35e2caabc21bb694fc29/rdf_engine-234-py3-none-any.whl", hash = "sha256:1309f5135e58e492f70728b4856a19fb608b5fe4f7a818f5de235d770ce3b25f", size = 11088, upload-time = "2026-05-21T23:13:42.567Z" },
+    { url = "https://files.pythonhosted.org/packages/0e/31/0f7e2c839877d7ce7e8e548e2f2f03a4d134bdf06b658bb89dafb2621e31/rdf_engine-236-py3-none-any.whl", hash = "sha256:58a2c562a583e005dcbc3f170b66aa089974a15972f5164ca8fcb4d087e122eb", size = 11090, upload-time = "2026-08-19T16:41:33.01Z" },
 ]
 
 [[package]]
@@ -809,6 +809,7 @@ source = { editable = "." }
 dependencies = [
     { name = "beartype" },
     { name = "json2rdf" },
+    { name = "loguru" },
     { name = "openpyxl" },
     { name = "pandas" },
     { name = "plum" },
@@ -833,6 +834,7 @@ requires-dist = [
     { name = "beartype" },
     { name = "fire", marker = "extra == 'dev'" },
     { name = "json2rdf" },
+    { name = "loguru" },
     { name = "marimo", marker = "extra == 'dev'" },
     { name = "openpyxl" },
     { name = "pandas" },
