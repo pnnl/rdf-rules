@@ -1,0 +1,1 @@
+`marimo export html demo.py -o index.html`

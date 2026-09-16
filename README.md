@@ -1,3 +1,6 @@
+[Documentation](http://pnnl.github.io/rdf-rules)
+
+
 A slightly opinionated, common set of 'rules'
 for creating rdf data using '[rdf-engine](https://github.com/pnnl/rdf-engine)':
 * **Data Rules**: for loading tables (csv), hierarchical (json), and rdf (ttl).
@@ -54,5 +57,4 @@ See `run` function documentation.
 are `mapped_and_inferred` and `validation` (results).
 It's best to extract these using the `query` function
 as they slightly depend on configuration.
-
 

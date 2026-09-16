@@ -1,0 +1,19 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix : <urn:rdf-rules:data:>
+prefix ppl: <urn:example:people:>
+
+construct {
+    ?s ?p ?o.
+}
+#select *
+where
+{
+    ?_row :relation ?src_rel.
+    ?_row :person1  ?p1. 
+    ?_row :person2  ?p2.
+    values (?src_rel ?dst_rel) { ("knows" "knows") }
+
+    bind( URI(concat(str(ppl:),  ?p1 ))     as ?s )
+    bind( URI(concat(str(foaf:), ?dst_rel)) as ?p )
+    bind( URI(concat(str(ppl:),  ?p2 ))     as ?o )
+}
