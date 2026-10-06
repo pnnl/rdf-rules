@@ -1,0 +1,426 @@
+@prefix ns1: <urn:rdf-rules:data:> .
+@prefix ns2: <urn:rdf-rules:meta:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns1:id ;
+    rdf:subject _:Nd37149c3083245b99b8ac96230fd2026 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "integer" ;
+    rdf:predicate ns1:type ;
+    rdf:subject _:Nbc162a8a40484777953d8d274520f25c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N194c3b432b484116ae6011008428cd1d ;
+    rdf:predicate rdf:_3 ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N21b0009df2fe4afb897b9bb1e1e3a009 ;
+    rdf:predicate rdf:_4 ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "number" ;
+    rdf:predicate ns1:type ;
+    rdf:subject _:N0f08295341174207a989767a332316da ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 4 ;
+    rdf:predicate ns1:id ;
+    rdf:subject _:N194c3b432b484116ae6011008428cd1d ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "index" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:Nbc162a8a40484777953d8d274520f25c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "score" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N0f08295341174207a989767a332316da ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 95.75 ;
+    rdf:predicate ns1:score ;
+    rdf:subject _:N194c3b432b484116ae6011008428cd1d ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:Ne73ff7ea43984ded889776166834530b ;
+    rdf:predicate ns1:schema ;
+    rdf:subject _:N94d011a536464734853b0ee829eb6348 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object false ;
+    rdf:predicate ns1:active ;
+    rdf:subject _:N4c1ce58984ae4a198436b9314c982491 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object true ;
+    rdf:predicate ns1:active ;
+    rdf:subject _:N194c3b432b484116ae6011008428cd1d ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "integer" ;
+    rdf:predicate ns1:type ;
+    rdf:subject _:N27dd086dac184000b209ce1281d51baf ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 1 ;
+    rdf:predicate ns1:index ;
+    rdf:subject _:N4c1ce58984ae4a198436b9314c982491 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 92.5 ;
+    rdf:predicate ns1:score ;
+    rdf:subject _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N27dd086dac184000b209ce1281d51baf ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "boolean" ;
+    rdf:predicate ns1:extDtype ;
+    rdf:subject _:N21b0009df2fe4afb897b9bb1e1e3a009 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 1 ;
+    rdf:predicate ns1:id ;
+    rdf:subject _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Dave" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N194c3b432b484116ae6011008428cd1d ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object true ;
+    rdf:predicate ns1:active ;
+    rdf:subject _:Nd37149c3083245b99b8ac96230fd2026 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nd37149c3083245b99b8ac96230fd2026 ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    rdf:predicate ns1:data ;
+    rdf:subject _:N94d011a536464734853b0ee829eb6348 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    rdf:predicate rdf:_4 ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nbc162a8a40484777953d8d274520f25c ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 61.0 ;
+    rdf:predicate ns1:score ;
+    rdf:subject _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 88.25 ;
+    rdf:predicate ns1:score ;
+    rdf:subject _:Nd37149c3083245b99b8ac96230fd2026 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns1:index ;
+    rdf:subject _:Nd37149c3083245b99b8ac96230fd2026 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N8155238a188a4b3a96162edcbdf4c270 ;
+    rdf:predicate rdf:_2 ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "name" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N8155238a188a4b3a96162edcbdf4c270 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    rdf:predicate ns1:fields ;
+    rdf:subject _:Ne73ff7ea43984ded889776166834530b ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Eve" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 4 ;
+    rdf:predicate ns1:index ;
+    rdf:subject _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "string" ;
+    rdf:predicate ns1:extDtype ;
+    rdf:subject _:N8155238a188a4b3a96162edcbdf4c270 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "active" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N21b0009df2fe4afb897b9bb1e1e3a009 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 78.0 ;
+    rdf:predicate ns1:score ;
+    rdf:subject _:N4c1ce58984ae4a198436b9314c982491 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "id" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N27dd086dac184000b209ce1281d51baf ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 5 ;
+    rdf:predicate ns1:id ;
+    rdf:subject _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "index" ;
+    rdf:predicate rdf:_0 ;
+    rdf:subject _:N6c9f258bd33e4ba393f548956dda63a4 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N6c9f258bd33e4ba393f548956dda63a4 ;
+    rdf:predicate ns1:primaryKey ;
+    rdf:subject _:Ne73ff7ea43984ded889776166834530b ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N4c1ce58984ae4a198436b9314c982491 ;
+    rdf:predicate rdf:_1 ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object false ;
+    rdf:predicate ns1:active ;
+    rdf:subject _:N2c8f0e4578fb4a9fbf2e704abc20bdde ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object true ;
+    rdf:predicate ns1:active ;
+    rdf:subject _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Float64" ;
+    rdf:predicate ns1:extDtype ;
+    rdf:subject _:N0f08295341174207a989767a332316da ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "string" ;
+    rdf:predicate ns1:type ;
+    rdf:subject _:N8155238a188a4b3a96162edcbdf4c270 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:N6c9f258bd33e4ba393f548956dda63a4 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 2 ;
+    rdf:predicate ns1:id ;
+    rdf:subject _:N4c1ce58984ae4a198436b9314c982491 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 0 ;
+    rdf:predicate ns1:index ;
+    rdf:subject _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object rdf:Seq ;
+    rdf:predicate rdf:type ;
+    rdf:subject _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Carol" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:Nd37149c3083245b99b8ac96230fd2026 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "boolean" ;
+    rdf:predicate ns1:type ;
+    rdf:subject _:N21b0009df2fe4afb897b9bb1e1e3a009 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Bob" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N4c1ce58984ae4a198436b9314c982491 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "1.4.0" ;
+    rdf:predicate ns1:pandas_version ;
+    rdf:subject _:Ne73ff7ea43984ded889776166834530b ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Alice" ;
+    rdf:predicate ns1:name ;
+    rdf:subject _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object _:N0f08295341174207a989767a332316da ;
+    rdf:predicate rdf:_3 ;
+    rdf:subject _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object 3 ;
+    rdf:predicate ns1:index ;
+    rdf:subject _:N194c3b432b484116ae6011008428cd1d ;
+    ns2:path "data/test.parquet" .
+
+[] a rdf:Statement ;
+    rdf:object "Int64" ;
+    rdf:predicate ns1:extDtype ;
+    rdf:subject _:N27dd086dac184000b209ce1281d51baf ;
+    ns2:path "data/test.parquet" .
+
+_:N94d011a536464734853b0ee829eb6348 ns1:data _:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 ;
+    ns1:schema _:Ne73ff7ea43984ded889776166834530b .
+
+_:N6c9f258bd33e4ba393f548956dda63a4 a rdf:Seq ;
+    rdf:_0 "index" .
+
+_:Nbc162a8a40484777953d8d274520f25c ns1:name "index" ;
+    ns1:type "integer" .
+
+_:N0f08295341174207a989767a332316da ns1:extDtype "Float64" ;
+    ns1:name "score" ;
+    ns1:type "number" .
+
+_:N21b0009df2fe4afb897b9bb1e1e3a009 ns1:extDtype "boolean" ;
+    ns1:name "active" ;
+    ns1:type "boolean" .
+
+_:N27dd086dac184000b209ce1281d51baf ns1:extDtype "Int64" ;
+    ns1:name "id" ;
+    ns1:type "integer" .
+
+_:N8155238a188a4b3a96162edcbdf4c270 ns1:extDtype "string" ;
+    ns1:name "name" ;
+    ns1:type "string" .
+
+_:Ne73ff7ea43984ded889776166834530b ns1:fields _:Nc42bd4404e754672b9ad324cb7dc5e6c ;
+    ns1:pandas_version "1.4.0" ;
+    ns1:primaryKey _:N6c9f258bd33e4ba393f548956dda63a4 .
+
+_:N194c3b432b484116ae6011008428cd1d ns1:active true ;
+    ns1:id 4 ;
+    ns1:index 3 ;
+    ns1:name "Dave" ;
+    ns1:score 95.75 .
+
+_:N2c8f0e4578fb4a9fbf2e704abc20bdde ns1:active false ;
+    ns1:id 5 ;
+    ns1:index 4 ;
+    ns1:name "Eve" ;
+    ns1:score 61.0 .
+
+_:N4c1ce58984ae4a198436b9314c982491 ns1:active false ;
+    ns1:id 2 ;
+    ns1:index 1 ;
+    ns1:name "Bob" ;
+    ns1:score 78.0 .
+
+_:N8f8f8945d0984908acdcb1d9634ad816 ns1:active true ;
+    ns1:id 1 ;
+    ns1:index 0 ;
+    ns1:name "Alice" ;
+    ns1:score 92.5 .
+
+_:Nd37149c3083245b99b8ac96230fd2026 ns1:active true ;
+    ns1:id 3 ;
+    ns1:index 2 ;
+    ns1:name "Carol" ;
+    ns1:score 88.25 .
+
+_:Nc42bd4404e754672b9ad324cb7dc5e6c a rdf:Seq ;
+    rdf:_0 _:Nbc162a8a40484777953d8d274520f25c ;
+    rdf:_1 _:N27dd086dac184000b209ce1281d51baf ;
+    rdf:_2 _:N8155238a188a4b3a96162edcbdf4c270 ;
+    rdf:_3 _:N0f08295341174207a989767a332316da ;
+    rdf:_4 _:N21b0009df2fe4afb897b9bb1e1e3a009 .
+
+_:Nf0d42bc59a0c4ec7adaaa25a2668ceb3 a rdf:Seq ;
+    rdf:_0 _:N8f8f8945d0984908acdcb1d9634ad816 ;
+    rdf:_1 _:N4c1ce58984ae4a198436b9314c982491 ;
+    rdf:_2 _:Nd37149c3083245b99b8ac96230fd2026 ;
+    rdf:_3 _:N194c3b432b484116ae6011008428cd1d ;
+    rdf:_4 _:N2c8f0e4578fb4a9fbf2e704abc20bdde .
+

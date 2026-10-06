@@ -1,6 +1,6 @@
 [project]
 name = "rdf-rules"
-version = "2026.9.78"
+version = "2026.10.82"
 description = "Create RDF data "
 readme = "README.md"
 authors = [
@@ -13,7 +13,7 @@ dependencies = [
     'loguru',
      'plum', 'beartype',
     # tables
-    'pandas', 'json2rdf', 'openpyxl',
+    'pandas', 'json2rdf', 'openpyxl', 'pyarrow',
     #json 
     'json2rdf', 
     # sparql

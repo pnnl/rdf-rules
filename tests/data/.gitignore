@@ -2,4 +2,5 @@
 !test*.ttl
 !test*.json
 !test*.xlsx
+!test*.parquet
 *.obtained.*

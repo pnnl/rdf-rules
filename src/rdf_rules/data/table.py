@@ -6,9 +6,9 @@ class paths:
     class type:
         from typing import Annotated
         from beartype.vale import Is
-        csv = Annotated[Path, Is[lambda p: p.suffix == '.csv']]
-        xl = Annotated[Path, Is[lambda p: p.suffix == '.xlsx']]
-
+        csv =   Annotated[Path, Is[lambda p: p.suffix == '.csv']]
+        xl =    Annotated[Path, Is[lambda p: p.suffix == '.xlsx']]
+        pqt =   Annotated[Path, Is[lambda p: p.suffix == '.parquet']]
 
 import pandas as pd
 from .base import BaseMeta
@@ -96,6 +96,44 @@ class CSVReader(BaseMeta):
     def data(self, db):
         _ = db
         return self.table.data(_)
+
+
+
+class ParquetReader(BaseMeta):
+    from ..prefixes import prefixes
+    def __init__(self, path: paths.type.pqt,
+            reading_args: dict = {},
+            data_prefix=prefixes['data'],
+            data_id_prefix=prefixes['anon.id'],
+            json2rdf_options = {},
+            additional_params = {},
+            null_values = {},
+                 ) -> None:
+        self.path = path
+        self.reading_args = reading_args
+        self.data_prefix = data_prefix
+        self.data_id_prefix = data_id_prefix
+        self.json2rdf_options = json2rdf_options
+        self.additional_params = additional_params
+        self.null_values = null_values
+        self.table = Table( lambda: pd.read_parquet(path, **reading_args) ,
+            data_prefix=data_prefix,
+            data_id_prefix=data_id_prefix,
+            json2rdf_options = json2rdf_options,
+            null_values=null_values,
+        )
+
+    def params(self):
+        _ = {
+            'path': self.path.as_posix(),
+            **self.additional_params
+              } 
+        return _
+
+    def data(self, db):
+        _ = db
+        return self.table.data(_)
+
 
 
 class ExcelReader(BaseMeta):

@@ -21,6 +21,9 @@ class Maker:
     def make(self, path: tr.paths.type.csv, **options) -> tr.CSVReader:
         return self.tr.CSVReader(path, **options)
     @dispatch
+    def make(self, path: tr.paths.type.pqt, **options) -> tr.ParquetReader:
+        return self.tr.ParquetReader(path, **options)
+    @dispatch
     def make(self, path: tr.paths.type.xl, **options) -> tr.ExcelReader:
         return self.tr.ExcelReader(path, **options)
     @dispatch
