@@ -39,7 +39,6 @@ class Table(BaseMeta):
             _ = self._df()
         else:
             _ = self._df
-        _ = _.convert_dtypes()
         return _
 
     @classmethod
@@ -55,6 +54,7 @@ class Table(BaseMeta):
         _ = db
         _ = self.df()
         _ = self._tojson_conversions(_)
+        _ = _.convert_dtypes()
         _ = _.to_json(orient='table')
         from json2rdf import json2rdf as j2r
         _ = j2r(_,
