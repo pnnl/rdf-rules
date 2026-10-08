@@ -42,9 +42,19 @@ class Table(BaseMeta):
         _ = _.convert_dtypes()
         return _
 
+    @classmethod
+    def _tojson_conversions(cls, df: pd.DataFrame):
+        from base64 import b64encode as be
+        for c in df.columns:
+            if bytes in frozenset(type(i) for i in df[c]):
+                _ = [be(i) if isinstance(i, bytes) else i for i in df[c]]
+                df[c] = _
+        return df
+
     def data(self, db):
         _ = db
         _ = self.df()
+        _ = self._tojson_conversions(_)
         _ = _.to_json(orient='table')
         from json2rdf import json2rdf as j2r
         _ = j2r(_,
